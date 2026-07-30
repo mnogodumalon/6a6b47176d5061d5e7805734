@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Mustermann",
+    "firma": "z. B. Handwerksbetrieb GmbH",
+    "telefon": "z. B. +49 123 456789",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "notizen": "Besondere Anmerkungen, bevorzugte Zeiten, Ansprechpartner..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Zementmörtel",
+    "artikelnummer": "z. B. ART-001",
+    "einheit": "Stück, Meter, Kilogramm, ...",
+    "lagerbestand": "z. B. 50",
+    "mindestbestand": "z. B. 10",
+    "verfuegbarkeit": "Verfügbar, Auf Bestellung, ...",
+    "material_notizen": "Lagerfach, Bezugsquelle, Haltbarkeit..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wird der Auftrag erfasst?",
+    "status": "Offen, In Bearbeitung, Abgeschlossen, ...",
+    "prioritaet": "Niedrig, Normal, Hoch, Dringend, ...",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Art der Arbeit, Umfang, spezielle Anforderungen...",
+    "wunschtermin": "Gewünschtes Fertigstellungsdatum & Uhrzeit",
+    "liefertermin": "Tatsächliches Liefertermin & Uhrzeit",
+    "monteur": "z. B. Meier, Hans",
+    "auftrag_notizen": "Besonderheiten, Kundenwünsche, Probleme..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag gehört diese Position?",
+    "material": "Welches Material wird verwendet?",
+    "positionsbeschreibung": "z. B. Arbeits- oder Materialleistung",
+    "menge": "z. B. 5",
+    "einheit_position": "Stück, Meter, Kilogramm, ...",
+    "bemerkung": "Spezifische Anforderungen oder Hinweise..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Meier",
+    "pruefungsdatum": "Wann findet die Prüfung statt?",
+    "pruefergebnis": "Nicht bestanden, Bestanden mit Mängeln, Bestanden, ...",
+    "maengelbeschreibung": "Was wurde festgestellt? Welche Fehler?...",
+    "massnahmen": "Welche Reparaturen/Korrektionen sind nötig?...",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}

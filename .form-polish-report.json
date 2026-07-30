@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten ohne Preiskalkulationen oder Zeitfunktionen. fieldOrder mit logischen Adress-Paaren (Straße+Hausnummer, PLZ+Ort) optimiert für Dateneingabe."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit", "lagerbestand", "mindestbestand"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Bestandsverwaltung. Lagerbestand und Mindestbestand sind unabhängige Schwellwerte, keine Beziehung zwischen ihnen. Verfügbarkeit bekommt sinnvollen Eröffnungswert ('verfügbar'). Keine Preis-Informationen vorhanden, daher keine computed-Formeln."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["auftragsdatum", "status", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Workflow-Entity mit Datumspannungen (Auftragsdatum → Liefertermin) und Kunden-Applookup (ohne Preis-Target). Status bekommt Workflow-Eröffnungswert 'offen', Liefertermin wird auf +7 Tage vorgesetzt. Keine Arbeitskosten/Stundensatz verfügbar, daher keine computed-Formeln für Preise möglich."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionszeilen mit Material-Applookup (target hat nur Bestandsfelder, KEIN Preis). Menge=1 als Standardwert sinnvoll. Material-Preis fehlt komplett, daher kein 'Menge × Preis' berechenbar. Wenn Backend später einen Material-Preis hinzufügt, kann computed erweitert werden."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Qualitätssicherungs-Protokoll mit Datum (today + withTime:true für Prüfungszeit) und Ergebnis-Workflow (nicht_bestanden / bestanden_mit_maengeln / bestanden). Einzelnes Prüfungsdatum, KEIN Datumspaar. Keine numerischen Berechnungen nötig, reine Dokumentation von Befunden und Maßnahmen."
+    }
+  }
+}
