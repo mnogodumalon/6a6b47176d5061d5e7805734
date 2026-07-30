@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. ABC Elektro GmbH",
+    "telefon": "z. B. +49 123 456789",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42 a",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Kundenwünsche, Projektgeschichte..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Kupferrohr 15mm",
+    "artikelnummer": "z. B. KR-15-100m",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 25",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Wähle Verfügbarkeitsstatus",
+    "material_notizen": "Lagerort, Haltbarkeit, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wird der Auftrag erfasst?",
+    "status": "Wähle einen Status",
+    "prioritaet": "z. B. Normal, Hoch, Dringend",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist die genaue Aufgabe? Umfang, Anforderungen, Besonderheiten...",
+    "wunschtermin": "Wann soll es fertig sein?",
+    "liefertermin": "Wann wird es geliefert?",
+    "monteur": "z. B. Peter Schmidt",
+    "auftrag_notizen": "Spezialwünsche, Zugang, Arbeitsschritte..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Verlegung im Keller",
+    "menge": "z. B. 10",
+    "einheit_position": "z. B. Meter",
+    "bemerkung": "Spezifikationen, Besonderheiten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Karl",
+    "monteur_name_nachname": "z. B. Weber",
+    "pruefungsdatum": "Wann wird geprüft?",
+    "pruefergebnis": "Wähle ein Prüfergebnis",
+    "maengelbeschreibung": "Was ist fehlerhaft? Beschreibung der Mängel...",
+    "massnahmen": "Welche Schritte werden eingeleitet? Reparatur, Nachbearbeitung...",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen, offene Punkte..."
+  }
+}

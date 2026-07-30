@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdatenverwaltung (Name, Adresse, Kontakt) — keine Berechnung sinnvoll"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerbestands-Item mit Mengen-Feldern aber ohne applookup-Preis oder Datumsfelder — keine berechnbare Beziehung"
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status"],
+      "computed_keys": [],
+      "reason": "Auftragserfassung mit Datums- und Status-Feldern, kein number-Feld — keine Multiplikation/Aggregation"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Bestelldetail mit Menge-Feld, aber applookup Material hat kein Preis-Zielfeld — keine Produktformel"
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Qualitätsprüfungs-Dokumentation ohne number-Felder oder applookup mit Preis — reine Dokumentation"
+    }
+  }
+}
