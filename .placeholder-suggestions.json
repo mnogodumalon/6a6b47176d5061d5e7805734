@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Baumeister GmbH",
+    "email": "z. B. max.mueller@example.de",
+    "telefon": "z. B. +49 123 456789",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besondere Wünsche, Erreichbarkeit, bevorzugte Kontaktzeit..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Systemschrauben M6",
+    "artikelnummer": "z. B. ART-2024-001",
+    "einheit": "z. B. Stück, Meter",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 50",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Lagerfach, Lagerort, Lieferant, spezielle Hinweise..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2024-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Auftragsstatus wählen",
+    "prioritaet": "z. B. Hoch, Normal",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was muss getan werden? Material, Umfang, spezielle Anforderungen...",
+    "wunschtermin": "Gewünschter Lieferzeitpunkt?",
+    "liefertermin": "Tatsächlicher Lieferzeitpunkt?",
+    "monteur": "z. B. Karl Baumeister",
+    "auftrag_notizen": "Besonderheiten, Rücksprachen, Rechnungsdetails..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welchem Auftrag zuordnen?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Grundierung auftragen",
+    "menge": "Wieviel benötigt?",
+    "einheit_position": "z. B. Meter, Stück",
+    "bemerkung": "Spezielle Hinweise zur Position, Qualität, Toleranzen..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag?",
+    "monteur_name_vorname": "z. B. Karl",
+    "monteur_name_nachname": "z. B. Baumeister",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Bestandene Prüfung?",
+    "maengelbeschreibung": "Was wurde beanstandet? Material, Verarbeitung, Maße...",
+    "massnahmen": "Nachbesserungen, Austausch, Dokumentation...",
+    "bemerkungen_pruef": "Zusätzliche Informationen, Freigabe, nächste Schritte..."
+  }
+}

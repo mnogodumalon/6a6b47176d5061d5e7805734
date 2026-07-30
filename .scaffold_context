@@ -1,0 +1,862 @@
+# Scaffold Context — Generated File Contents
+
+These files are pre-generated. Do NOT Read the pre-generated source files — their contracts and contents are in THIS file and in the key-file parts listed below.
+Key file contents (types/app.ts, livingAppsService.ts, App.tsx, Layout.tsx, hooks/libs) are in .scaffold_files_p1 — Read each of them with ONE Read right after this file.
+EXCEPTION: DashboardOverview.tsx is NOT included here. You MUST Read it with the Read tool before Write.
+AdminPage.tsx is pre-generated but NOT inlined — Read it only if you need to reference its structure.
+Your job: Analyze data (1-2 sentences), Read then Write DashboardOverview.tsx (once), build.
+Loading/error UIs are pre-generated in src/components/DashboardStates.tsx — keep the DashboardSkeleton/DashboardError import and the two early-returns; never re-implement them.
+Component API contracts (DashboardGrid, WorkList, HeroBanner, StatCard, SatelliteSection, polish, RecordView) AND every {Entity}Dialog contract (incl. the exported {Entity}DialogDefaults prefill type) are inlined in the cheatsheet section below — do NOT Read those files. Read a widget file only for the ONE widget you compose (plus its .example.tsx).
+The per-entity {Entity}Details blocks are inlined IN FULL below — every RecordOverlay body composes them (gate-enforced).
+index.css is pre-generated with the shared design system. Do NOT edit it.
+src/config/ai-features.ts is editable — set AI_PHOTO_SCAN['Entity'] = true to enable photo scan in dialogs.
+NEVER use Bash cat/echo/heredoc for file operations — always use Read/Write/Edit tools.
+
+Generated 118 scaffold files:
+  - src/App.tsx
+  - src/components/ErrorBoundary.tsx
+  - src/components/ErrorBus.tsx
+  - src/components/Layout.tsx
+  - src/types/la-widgets.d.ts
+  - src/components/PageShell.tsx
+  - src/components/ActionsBar.tsx
+  - src/components/ActionsSidebar.tsx
+  - src/components/ActionsDrawer.tsx
+  - src/pages/DashboardOverview.tsx
+  - src/components/DashboardStates.tsx
+  - src/components/ConfirmDialog.tsx
+  - src/components/ActionInputDialog.tsx
+  - src/components/StatCard.tsx
+  - src/components/TypingDots.tsx
+  - src/components/DashboardGrid.tsx
+  - src/components/WorkList.tsx
+  - src/components/HeroBanner.tsx
+  - src/components/SatelliteSection.tsx
+  - scripts/check-dashboard.mjs
+  - scripts/check-lookup-keys.mjs
+  - scripts/check-hub.mjs
+  - scripts/check-icons.mjs
+  - scripts/check-blocks.mjs
+  - scripts/check-public.mjs
+  - scripts/check-hooks.mjs
+  - scripts/check-intents.mjs
+  - src/components/Combobox.tsx
+  - src/components/DatePicker.tsx
+  - .placeholder-tasks.json
+  - src/config/form-enhancements/types.ts
+  - src/config/form-enhancements/Kunden.ts
+  - src/config/form-enhancements/Material.ts
+  - src/config/form-enhancements/Auftraege.ts
+  - src/config/form-enhancements/Auftragspositionen.ts
+  - src/config/form-enhancements/Pruefprotokoll.ts
+  - scripts/parse-formulas.mjs
+  - scripts/apply-placeholders.mjs
+  - src/config/intents.ts
+  - src/components/IntentsNav.tsx
+  - src/components/blocks/IntentWizardShell.tsx
+  - src/components/IntentWizardShell.tsx
+  - src/components/blocks/EntitySelectStep.tsx
+  - src/components/EntitySelectStep.tsx
+  - src/components/blocks/BudgetTracker.tsx
+  - src/components/BudgetTracker.tsx
+  - src/components/blocks/StatusBadge.tsx
+  - src/components/StatusBadge.tsx
+  - src/index.css
+  - src/lib/sentry.ts
+  - src/lib/ai.ts
+  - src/lib/highlight.tsx
+  - src/lib/run-results.ts
+  - src/lib/actions-agent.ts
+  - src/context/ActionsContext.tsx
+  - src/components/ChatWidget.tsx
+  - src/components/ActionCodeDrawer.tsx
+  - src/components/VersionCheck.tsx
+  - src/components/AttachmentsSection.tsx
+  - src/config/ai-features.ts
+  - src/lib/formatters.ts
+  - src/lib/polish.ts
+  - src/hooks/useDashboardData.ts
+  - src/lib/publicClient.ts
+  - src/pages/public/PublicFormPage.tsx
+  - src/pages/public/registry.tsx
+  - src/pages/public/PublicPage.tsx
+  - src/components/PublicShell.tsx
+  - src/components/PublicPagesNav.tsx
+  - src/lib/publicPagesAdmin.ts
+  - src/pages/PublicPagesAdmin.tsx
+  - src/types/enriched.ts
+  - src/lib/enrich.ts
+  - src/components/AddressAutocomplete.tsx
+  - src/components/widgets/RecordView.tsx
+  - src/components/widgets/MediaViewer.tsx
+  - src/components/widgets/RecordView.example.tsx
+  - src/components/widgets/MediaViewer.example.tsx
+  - src/components/widgets/primitives.ts
+  - src/components/widgets/CalendarWidget.tsx
+  - src/components/widgets/CalendarWidget.example.tsx
+  - src/components/widgets/ResourceTimeline.tsx
+  - src/components/widgets/ResourceTimeline.example.tsx
+  - src/components/widgets/KanbanWidget.tsx
+  - src/components/widgets/KanbanWidget.example.tsx
+  - src/components/widgets/MapWidget.tsx
+  - src/components/widgets/MapWidget.example.tsx
+  - src/components/widgets/ChartWidget.tsx
+  - src/components/widgets/ChartWidget.example.tsx
+  - tsconfig.app.json
+  - src/pages/KundenPage.tsx
+  - src/components/dialogs/KundenDialog.tsx
+  - src/components/dialogs/KundenViewDialog.tsx
+  - src/pages/KundenDetailPage.tsx
+  - src/components/details/KundenDetails.tsx
+  - src/pages/MaterialPage.tsx
+  - src/components/dialogs/MaterialDialog.tsx
+  - src/components/dialogs/MaterialViewDialog.tsx
+  - src/pages/MaterialDetailPage.tsx
+  - src/components/details/MaterialDetails.tsx
+  - src/pages/AuftraegePage.tsx
+  - src/components/dialogs/AuftraegeDialog.tsx
+  - src/components/dialogs/AuftraegeViewDialog.tsx
+  - src/pages/AuftraegeDetailPage.tsx
+  - src/components/details/AuftraegeDetails.tsx
+  - src/pages/AuftragspositionenPage.tsx
+  - src/components/dialogs/AuftragspositionenDialog.tsx
+  - src/components/dialogs/AuftragspositionenViewDialog.tsx
+  - src/pages/AuftragspositionenDetailPage.tsx
+  - src/components/details/AuftragspositionenDetails.tsx
+  - src/pages/PruefprotokollPage.tsx
+  - src/components/dialogs/PruefprotokollDialog.tsx
+  - src/components/dialogs/PruefprotokollViewDialog.tsx
+  - src/pages/PruefprotokollDetailPage.tsx
+  - src/components/details/PruefprotokollDetails.tsx
+  - src/types/leaflet-plugins.d.ts
+  - src/pages/AdminPage.tsx
+  - src/components/dialogs/BulkEditDialog.tsx
+
+## Component API cheatsheet
+
+Extracted verbatim from the component file headers — reading the files
+would give you EXACTLY this. Do NOT Read these files for their
+contracts; Read one only if the contract below is insufficient.
+
+### src/components/DashboardGrid.tsx
+```
+/**
+ * DashboardGrid — the page skeleton every dashboard composes into.
+ *
+ * It owns the page PHYSICS so they cannot vary between builds:
+ *   · mobile order: hero → kpis → aside (work lists first) → primary
+ *   · staggered motion-safe entrance: hero 0ms → kpis 120ms → aside 240ms → primary 360ms
+ *   · consistent gaps (gap-6 / space-y-6)
+ *
+ * You pick the VARIANT — a semantic decision, like picking the widget:
+ *
+ *   · 'split' (default) — KPIs on top; primary 2/3 left (3/4 on xl),
+ *     aside rail right. The workhorse: calendar/map/detail + a work list.
+ *   · 'wide' — KPIs on top; primary takes the FULL width; aside surfaces
+ *     follow as ONE band of equal columns below. For surfaces that need
+ *     room: a kanban board, a resource timeline, a wide data table, a
+ *     7-day week. Pair with the slim `<StatStrip>` so the surface starts
+ *     high on the page.
+ *   · 'rail' — DEPRECATED, never choose it for new dashboards (kept only so
+ *     existing ones keep compiling): the side column grows with the SUM of
+ *     its surfaces and outruns the board. Use 'wide' + `<StatStrip>`.
+ *
+ * It owns NOTHING content-related — every slot takes arbitrary nodes:
+ *
+ *   <DashboardGrid
+ *     variant="wide"                                       // optional — default 'split'
+ *     hero={überfällig.length > 0 && <HeroBanner …>}      // optional — only when urgent
+ *     kpis={<StatStrip>…</StatStrip>}                      // optional — or <StatCardRow>
+ *     aside={<><WorkList … /><WorkList … /></>}            // optional — 1–2 surfaces, OWN axis
+ *     primary={<KanbanWidget … />}                         // the weight: board/calendar/timeline/table
+ *   />
+ *
+ * The page header (h1 greeting + context line + primary action button) stays
+ * ABOVE this component — it is not a slot.
+ *
+ * Opting out: building the page layout by hand is allowed ONLY for a genuinely
+ * different page shape (full-screen map, gallery-first) and costs a written
+ * justification comment: `// layout-opt-out: <reason>`.
+ */
+```
+
+### src/components/WorkList.tsx
+```
+/**
+ * WorkList — the aside ACTION list (not a link list).
+ *
+ * Anatomy it owns, so it cannot degrade between builds:
+ *   · every row opens the record's detail (→ <RecordOverlay>) via `onItemClick`
+ *   · the trailing quick-action performs the workflow's NEXT STEP (advance the
+ *     status, confirm, check-out) — wired as role="button" with stopPropagation,
+ *     never a nested <button>
+ *   · status lives in the second line as a colored WORD, never a truncating badge
+ *   · capped at `max` rows with a "+N weitere" line
+ *   · empty state shows the NEXT real record or a CTA — never a dead
+ *     "Keine Einträge" box without a way forward
+ *
+ * What a row SHOWS and what the action DOES stays with the consumer:
+ *
+ *   <WorkList
+ *     title="Fällig heute & überfällig"
+ *     items={faellige.map(r => ({
+ *       id: r.record_id,
+ *       title: r.kundeName ?? r.fields.kennzeichen,
+ *       secondLine: <><span className="font-medium text-destructive">Überfällig</span>
+ *                     <span className="text-muted-foreground"> · {formatDate(r.fields.faellig)}</span></>,
+ *       action: { label: '✓ Weiter', onClick: () => advance(r) },   // same shared helper as board + overlay
+ *     }))}
+ *     onItemClick={id => overlay.replace({ id })}
+ *     empty={{ text: 'Alles im Zeitplan — nächster Termin Di 11:00', action: { label: 'Neuer Auftrag', onClick: openCreate } }}
+ *   />
+ */
+```
+
+### src/components/HeroBanner.tsx
+```
+/**
+ * HeroBanner — the ONE urgent signal, with its resolving action.
+ *
+ * One message per dashboard: when the data carries an urgent state (overdue,
+ * unstaffed, over capacity), this banner is the hero — and NOTHING else repeats
+ * it (no tinted KPI for the same number, no second red list). When nothing is
+ * urgent, render no banner at all — the primary widget is the hero.
+ *
+ * `action` is REQUIRED by design: a banner that only states a fact is a dead
+ * end. The button RESOLVES the signal with a write (advance/confirm/send —
+ * optimistic + undoToast), reusing the SAME helper as the work-list quick-
+ * actions and the overlay footer. Only when no write can resolve the signal
+ * does the action fall back to focusing the records (filter/scroll).
+ *
+ *   {überfällig.length > 0 && (
+ *     <HeroBanner
+ *       icon={<IconAlertTriangle size={18} />}
+ *       action={{ label: 'Kunde informieren', onClick: () => advance(überfällig[0]) }}
+ *     >
+ *       <b>{namen(überfällig.map(r => r.kundeName ?? ''))}</b> überfällig — fällig war {formatDate(überfällig[0].fields.faellig)}.
+ *     </HeroBanner>
+ *   )}
+ */
+```
+
+### src/components/StatCard.tsx
+```
+/**
+ * StatCard / StatStrip — the two KPI surfaces of the overview.
+ *
+ * ─── API at a glance (exact prop names — NEVER guess) ──────────────────
+ *
+ *  <StatCard      title value description? icon? tone? onClick? active?
+ *                 footer? className?>
+ *      The full card: big value, optional description line, optional footer
+ *      slot. Use it for the board's headline numbers.
+ *  <StatStrip     className? children>
+ *      The slim KPI bar: it takes <StatStripItem>s as children and nothing
+ *      else. Pass it to <DashboardGrid kpis={…}> when the numbers are
+ *      context, not the headline.
+ *  <StatStripItem title value icon? tone? onClick? active?>
+ *      One segment. `value` is string | number (already formatted).
+ *
+ *  tone (both, default 'default'):
+ *      'default' | 'primary' | 'success' | 'warning' | 'destructive'
+ *      Exported as `StatCardTone`. It follows the VALUE'S STATE, never the
+ *      category — see the palette note below.
+ *
+ *  A clickable card/segment FILTERS the surface below it: pair `onClick`
+ *  with `active` and toggle the filter off on the second click.
+ */
+```
+
+### src/components/SatelliteSection.tsx
+```
+/**
+ * SatelliteSection — one section of a hub record's overlay (hub-and-spoke).
+ *
+ * In a hub app (a central entity with many applookup satellites — Baustelle ←
+ * Mängel/Berichte/Fotos/…), the hub's overlay shows ONE of these per satellite
+ * entity. The component bakes in the three mechanics that are easy to get wrong
+ * by hand, so they're guaranteed by construction:
+ *   1. it ALWAYS renders a "+" (the `onAdd` prop is required) — no read-only
+ *      satellite sections;
+ *   2. clicking a row calls `onOpen` (→ open the record's DETAIL overlay via
+ *      overlay.push), NEVER the edit form — editing happens from inside that
+ *      detail;
+ *   3. consistent header-with-count + relation-list + dashed-add layout.
+ *
+ * Render one per entity in HUB_TOPOLOGY[hubKey]; the gate checks completeness.
+ *
+ *   <SatelliteSection
+ *     title="Mängel"
+ *     items={maengelVon(b.record_id)}
+ *     getKey={m => m.record_id}
+ *     map={m => ({ name: m.fields.typ, label: m.fields.prioritaet?.label, meta: m.fields.beschreibung, icon: IconAlertTriangle })}
+ *     onOpen={m => overlay.push({ typ: 'mangel', id: m.record_id })}   // DETAIL, not edit
+ *     onAdd={() => openCreate('maengelerfassung', b.record_id)}        // the "+"
+ *   />
+ */
+```
+
+### src/lib/polish.ts
+```
+/**
+ * polish.ts — pre-generated dashboard polish helpers (the "finished dashboard" layer).
+ *
+ *   useClock(ms?)          minute-ticking Date — derive ALL today/now values from it,
+ *                          never from a Date captured once (frozen "today").
+ *                          EVERY time string from `clock` is LOCAL via date-fns format —
+ *                          toISOString() is banned in the overview (UTC flips the day at
+ *                          the wrong hour; gate-enforced), for datetime values too:
+ *                            ❌ clock.toISOString()
+ *                            ✓ format(clock, 'yyyy-MM-dd')           // day key
+ *                            ✓ format(clock, "yyyy-MM-dd'T'HH:mm")   // datetime
+ *   gruss(d)               time-of-day greeting ("Guten Morgen!" / "Guten Tag!" / "Guten Abend!")
+ *   namen(xs, max?)        "Anna & Ben +2" — the first names, cleanly shortened
+ *   ENTRANCE               staggered-entrance className (motion-safe, ~700ms)
+ *   entranceDelay(ms)      per-block delay style — stagger blocks 0/120/240/360ms
+ *   undoToast(msg, undo?)  success toast via the global Toaster; with `undo` it renders
+ *                          a "Rückgängig" action — pass the counter-write (revert state
+ *                          snapshot + counter-PATCH).
+ *
+ * These helpers ARE the polish layer described in CLAUDE.md — import them,
+ * do not re-derive them by hand.
+ */
+```
+
+### src/components/widgets/RecordView.tsx
+```
+/**
+ * RecordView — pre-generated record-detail widget set (Archetype A).
+ *
+ * The whole detail-view UX (route pages, drawers, modals, lightboxes) ships as
+ * composable primitives here. You feed records into compound components; the
+ * file owns the shells, the layout, the overlay stack. Compose; never
+ * reimplement. Building a custom <Dialog>/<Sheet>/<Drawer> or a
+ * `<div className="fixed inset-0">` modal for record details is forbidden —
+ * THIS file is the detail surface. Customize via slots, never by editing it.
+ *
+ * ─── HARD RULES (read first) ───────────────────────────────────────────
+ *  1. EVERY detail surface MUST include <RecordAttachments appId recordId/>.
+ *     Leave it out and the record's files/notes silently disappear.
+ *  2. NEVER fork the shell: no custom <Dialog>/<Sheet>/<Drawer>/`fixed
+ *     inset-0` for record details. Compose <RecordView>/<RecordOverlay>.
+ *  3. In <RecordOverlay>, NEVER navigate away from a <RecordRelation> — push
+ *     onto the overlay stack (useRecordOverlayStack) instead. The user opened
+ *     a preview; don't rip them out.
+ *  4. Zoom belongs on a DETAIL surface (an overlay/header `media` slot): use
+ *     <MediaThumbnail> there, never a raw <img> the user can't enlarge. A
+ *     clickable list/gallery TILE is ONE click target — it opens the overlay;
+ *     its image is a passive `<img className="object-cover">`.
+ *  5. Never edit this file. If a slot is missing: unblock via children/render-
+ *     prop + // TODO(widget-gap). Never fork, never leave the build red.
+ *
+ * ─── API at a glance (exact prop / return names — NEVER guess) ─────────
+ *
+ *  useRecordOverlayStack<T = RecordOverlayStackItem>(initial?: T[]) ->
+ *    { stack: T[], top: T|null, current: T|null, open: boolean,
+ *      canGoBack: boolean, push(item), pop(), close(), replace(item) }
+ *    `current` aliases `top` (the visible item). push/pop drill the stack;
+ *    replace opens from outside the overlay; close empties it. T is
+ *    UNCONSTRAINED — for ONE entity use its record type
+ *    (`useRecordOverlayStack<Buchung>()`, then `replace(b)` / read `top`); a
+ *    MULTI-type stack uses a `{ type, id }` union (see the example).
+ *
+ *  <RecordView        onBack? onEdit? editLabel? backLabel? aside? className?
+ *                     children>
+ *  <RecordOverlay     open onClose onEdit? onBack?
+ *                     placement?: 'side'|'center'   (default 'side')
+ *                     size?: 'sm'|'md'|'lg'|'xl'    (default 'md')
+ *                     media? footer?(ReactNode OR { label, onClick })
+ *                     counter? onPrev? onNext? ariaLabel?
+ *                     closeOnBackdropClick?(default true) onBeforeClose?
+ *                     editLabel? closeLabel? backLabel? prevLabel? nextLabel?
+ *                     className? children>
+ *  <RecordOverlayHost overlay={stack}                 — THE one shell per page:
+ *                     render:  (top) => ReactNode      the whole stack renders in ONE
+ *                     footer?: (top) => ReactNode      <RecordOverlay>, so push/pop swaps
+ *                              OR { label, onClick }   the body without a remount blink.
+ *                     onEdit?: (top) => void           Back appears from depth 2 on.
+ *                     placement? size? className?>     Prefer this over open-flag overlays.
+ *  <RecordHeader      title subtitle? media? badges? meta? actions? className?>
+ *  <RecordKeyFacts    items: { label, value, icon? }[]   className?>
+ *  <RecordSection     title? icon? cols?: 1|2|3 (default 1)  className? children>
+ *  <RecordField       label value? format? empty?(default '—') emphasis?
+ *                     hideEmpty? className? children?>
+ *      format: 'text'|'longtext'|'date'|'datetime'|'currency'|'bool'|'email'|'url'|'pill'
+ *               (default 'text')
+ *  <RecordRelation    label? name meta? icon? href? onClick? className?>
+ *  <RecordTimeline    items: { id?, when?, who?, text, icon?, actions? }[]
+ *                     renderItem?(item, index) empty? className?>
+ *  <RecordAttachments appId recordId readOnly?>
+ *  <RecordViewSkeleton/>
+ *  <RecordViewEmpty   icon? title? description? action? className?/>
+ *  <RecordViewError   error onRetry? title? retryLabel? className?/>
+ *
+ *  Every `icon` prop is a COMPONENT reference — `icon={IconBed}`, NOT
+ *  `icon={<IconBed/>}`. The `media` slots take a RENDERED element instead:
+ *  `media={<img …/>}`.
+ *
+ *  `format="pill"` reads `.label` off a {key,label} lookup object. For an
+ *  APPLOOKUP, pass the resolved display name (an inline helper that maps the
+ *  stored URL → label by id; see the example), not the raw field. For
+ *  anything the formats don't cover (progress bar, map, rating) pass
+ *  `children` instead of `value` — they render under the label; `value`/
+ *  `format` are then ignored.
+ *
+ *  <RecordOverlay> paging vs. stack — distinct: `onPrev`/`onNext` (+`counter`,
+ *  ←/→ keys) STEP THROUGH SIBLING records (a gallery); the overlay stack
+ *  DRILLS INTO RELATED records. Don't conflate them.
+ *
+ * ─── ❌ COMMON MISTAKES (real build failures) ──────────────────────────
+ *  ❌ <RecordHeader media> / overlay `media` with a raw <img> the user can't
+ *     enlarge → use <MediaThumbnail> for a zoomable detail asset.
+ *  ❌ Nesting <MediaThumbnail> inside a clickable tile → two click targets
+ *     fight (tile-open vs. its own lightbox). Tiles use a passive <img>.
+ *  ❌ navigate() from a <RecordRelation> inside a <RecordOverlay> → use
+ *     overlay.push(); navigation only on a <RecordView> route page.
+ *  ❌ icon={<IconBed/>} → pass the component: icon={IconBed}.
+ *  ❌ badges={[{ label: '…' }]} — `badges`/`meta`/`actions` are ReactNode SLOTS
+ *     (TS2322): pass RENDERED elements, e.g. badges={<Badge>…</Badge>}. Only
+ *     <RecordKeyFacts items> and <RecordTimeline items> take config arrays.
+ *     Exception by design: <RecordOverlay footer> ALSO accepts the family
+ *     action object { label, onClick } (WorkList/HeroBanner idiom) and
+ *     renders the standard full-width primary button from it.
+ *  ❌ Forgetting <RecordAttachments> → files/notes silently vanish.
+ *  ❌ A hand-rolled `fixed inset-0` modal for details → compose <RecordOverlay>.
+ *
+ * Full compiling example: ./RecordView.example.tsx
+ *
+ * @version 1.1.0
+ * @since 2026-07-27  (1.1.0: `footer` is shape-tolerant — ReactNode OR the
+ *                     family action object { label, onClick } (the WorkList/
+ *                     HeroBanner idiom); the object renders the standard
+ *                     full-width primary button. Two independent sessions
+ *                     inferred exactly that idiom on `footer` and hit TS2322 —
+ *                     the family generalization is now correct by design.
+ *                     New exports: RecordOverlayAction, RecordOverlayFooter;
+ *                     RecordOverlayHost's `footer` return type widened too.)
+ * @since 2026-06-03  (1.0.0: first release.)
+ */
+```
+
+### src/components/dialogs/AuftraegeDialog.tsx
+```
+/**
+ * AuftraegeDialog — pre-generated create/edit dialog for Auftraege.
+ *
+ * Props: open, onClose, onSubmit(fields) => Promise<void>, defaultValues?,
+ * recordId? (pass when EDITING — enables the attachments section),
+ * kundenList (full hook array — resolves the Kunden applookup),
+ * enablePhotoScan?, enablePhotoLocation?.
+ *
+ * defaultValues is SHAPE-TOLERANT and its prop type is the EXPORTED
+ * AuftraegeDialogDefaults — NOT the entity field type: lookup fields accept
+ * the bare KEY string (or LookupValue), applookup fields the bare record id
+ * (or record URL); the dialog normalizes. Type prefill STATE with the export:
+ *  ❌ useState<Partial<Auftraege['fields']>>({ … })   // LookupValue fields reject string prefills (TS2322)
+ *  ✓ useState<AuftraegeDialogDefaults | undefined>(undefined)
+ */
+```
+
+### src/components/dialogs/AuftragspositionenDialog.tsx
+```
+/**
+ * AuftragspositionenDialog — pre-generated create/edit dialog for Auftragspositionen.
+ *
+ * Props: open, onClose, onSubmit(fields) => Promise<void>, defaultValues?,
+ * recordId? (pass when EDITING — enables the attachments section),
+ * auftraegeList (full hook array — resolves the Auftraege applookup),
+ * materialList (full hook array — resolves the Material applookup),
+ * enablePhotoScan?, enablePhotoLocation?.
+ *
+ * defaultValues is SHAPE-TOLERANT and its prop type is the EXPORTED
+ * AuftragspositionenDialogDefaults — NOT the entity field type: lookup fields accept
+ * the bare KEY string (or LookupValue), applookup fields the bare record id
+ * (or record URL); the dialog normalizes. Type prefill STATE with the export:
+ *  ❌ useState<Partial<Auftragspositionen['fields']>>({ … })   // LookupValue fields reject string prefills (TS2322)
+ *  ✓ useState<AuftragspositionenDialogDefaults | undefined>(undefined)
+ */
+```
+
+### src/components/dialogs/KundenDialog.tsx
+```
+/**
+ * KundenDialog — pre-generated create/edit dialog for Kunden.
+ *
+ * Props: open, onClose, onSubmit(fields) => Promise<void>, defaultValues?,
+ * recordId? (pass when EDITING — enables the attachments section),
+ * enablePhotoScan?, enablePhotoLocation?.
+ *
+ * defaultValues is SHAPE-TOLERANT and its prop type is the EXPORTED
+ * KundenDialogDefaults — NOT the entity field type: lookup fields accept
+ * the bare KEY string (or LookupValue), applookup fields the bare record id
+ * (or record URL); the dialog normalizes. Type prefill STATE with the export:
+ *  ❌ useState<Partial<Kunden['fields']>>({ … })   // LookupValue fields reject string prefills (TS2322)
+ *  ✓ useState<KundenDialogDefaults | undefined>(undefined)
+ */
+```
+
+### src/components/dialogs/MaterialDialog.tsx
+```
+/**
+ * MaterialDialog — pre-generated create/edit dialog for Material.
+ *
+ * Props: open, onClose, onSubmit(fields) => Promise<void>, defaultValues?,
+ * recordId? (pass when EDITING — enables the attachments section),
+ * enablePhotoScan?, enablePhotoLocation?.
+ *
+ * defaultValues is SHAPE-TOLERANT and its prop type is the EXPORTED
+ * MaterialDialogDefaults — NOT the entity field type: lookup fields accept
+ * the bare KEY string (or LookupValue), applookup fields the bare record id
+ * (or record URL); the dialog normalizes. Type prefill STATE with the export:
+ *  ❌ useState<Partial<Material['fields']>>({ … })   // LookupValue fields reject string prefills (TS2322)
+ *  ✓ useState<MaterialDialogDefaults | undefined>(undefined)
+ */
+```
+
+### src/components/dialogs/PruefprotokollDialog.tsx
+```
+/**
+ * PruefprotokollDialog — pre-generated create/edit dialog for Pruefprotokoll.
+ *
+ * Props: open, onClose, onSubmit(fields) => Promise<void>, defaultValues?,
+ * recordId? (pass when EDITING — enables the attachments section),
+ * auftraegeList (full hook array — resolves the Auftraege applookup),
+ * enablePhotoScan?, enablePhotoLocation?.
+ *
+ * defaultValues is SHAPE-TOLERANT and its prop type is the EXPORTED
+ * PruefprotokollDialogDefaults — NOT the entity field type: lookup fields accept
+ * the bare KEY string (or LookupValue), applookup fields the bare record id
+ * (or record URL); the dialog normalizes. Type prefill STATE with the export:
+ *  ❌ useState<Partial<Pruefprotokoll['fields']>>({ … })   // LookupValue fields reject string prefills (TS2322)
+ *  ✓ useState<PruefprotokollDialogDefaults | undefined>(undefined)
+ */
+```
+
+## Per-entity detail blocks (full contents — compose these in every RecordOverlay body)
+
+## src/components/details/AuftraegeDetails.tsx
+```
+import type { Auftraege, Kunden, Auftragspositionen, Pruefprotokoll } from '@/types/app';
+import { APP_IDS } from '@/types/app';
+import { extractRecordId } from '@/services/livingAppsService';
+import {
+  RecordSection, RecordField, RecordRelation, RecordAttachments,
+} from '@/components/widgets/RecordView';
+import { SatelliteSection } from '@/components/SatelliteSection';
+
+export interface AuftraegeDetailsProps {
+  /** Der Record — enriched oder roh; alle Felder werden hier gerendert. */
+  record: Auftraege;
+  /** N:1-Ziel „Kunden": volle Liste (Hook-Array) — der Block löst Name + Schlüsselfelder selbst auf. */
+  kundenList: Kunden[];
+  /** Klick auf die Kunden-Relation → overlay.push auf dessen Detail. */
+  onOpenKunden?: (record: Kunden) => void;
+  /** 1:N „Auftragspositionen": VOLLE Liste — der Block filtert auf diesen Record. */
+  auftragspositionenList: Auftragspositionen[];
+  /** Zeilen-Klick → overlay.push auf das Auftragspositionen-Detail (nie der Edit-Dialog). */
+  onOpenAuftragspositionen: (record: Auftragspositionen) => void;
+  /** Kontextuelles „+": öffnet den Auftragspositionen-Dialog mit diesem Record vorgesetzt. */
+  onAddAuftragspositionen: () => void;
+  /** 1:N „Prüfprotokoll": VOLLE Liste — der Block filtert auf diesen Record. */
+  pruefprotokollList: Pruefprotokoll[];
+  /** Zeilen-Klick → overlay.push auf das Pruefprotokoll-Detail (nie der Edit-Dialog). */
+  onOpenPruefprotokoll: (record: Pruefprotokoll) => void;
+  /** Kontextuelles „+": öffnet den Pruefprotokoll-Dialog mit diesem Record vorgesetzt. */
+  onAddPruefprotokoll: () => void;
+}
+
+export function AuftraegeDetails({
+  record,
+  kundenList,
+  onOpenKunden,
+  auftragspositionenList,
+  onOpenAuftragspositionen,
+  onAddAuftragspositionen,
+  pruefprotokollList,
+  onOpenPruefprotokoll,
+  onAddPruefprotokoll,
+}: AuftraegeDetailsProps) {
+  const kundeTarget = kundenList.find(r => r.record_id === extractRecordId(record.fields.kunde));
+  return (
+    <>
+      <RecordSection title="Details" cols={2}>
+        <RecordField label="Auftragsnummer" value={record.fields.auftragsnummer} format="text" />
+        <RecordField label="Auftragsdatum" value={record.fields.auftragsdatum} format="date" />
+        <RecordField label="Status" value={record.fields.status} format="pill" />
+        <RecordField label="Priorität" value={record.fields.prioritaet} format="pill" />
+        <RecordField label="Auftragsbeschreibung" value={record.fields.auftragsbeschreibung} format="longtext" className="md:col-span-2" />
+        <RecordField label="Wunschtermin" value={record.fields.wunschtermin} format="datetime" />
+        <RecordField label="Liefertermin" value={record.fields.liefertermin} format="datetime" />
+        <RecordField label="Zuständiger Monteur" value={record.fields.monteur} format="text" />
+        <RecordField label="Notizen" value={record.fields.auftrag_notizen} format="longtext" className="md:col-span-2" />
+      </RecordSection>
+
+      {/* N:1 — verknüpfte Records: IMMER klickbar, nie eine Text-Sackgasse. */}
+      <RecordSection title="Verknüpft" cols={1}>
+        <RecordRelation
+          label="Kunde"
+          name={kundeTarget?.fields.vorname ?? '—'}
+          meta={[kundeTarget?.fields.telefon, kundeTarget?.fields.email].filter(Boolean).join(' · ') || undefined}
+          onClick={kundeTarget && onOpenKunden ? () => onOpenKunden!(kundeTarget!) : undefined}
+        />
+      </RecordSection>
+
+      <SatelliteSection
+        title="Auftragspositionen"
+        items={auftragspositionenList.filter(r => extractRecordId(r.fields.auftrag) === record.record_id)}
+        map={r => ({ name: r.fields.positionsbeschreibung ?? 'Auftragspositionen', meta: undefined })}
+        onOpen={onOpenAuftragspositionen}
+        onAdd={onAddAuftragspositionen}
+        getKey={r => r.record_id}
+      />
+
+      <SatelliteSection
+        title="Prüfprotokoll"
+        items={pruefprotokollList.filter(r => extractRecordId(r.fields.auftrag_pruef) === record.record_id)}
+        map={r => ({ name: r.fields.monteur_name_vorname ?? 'Prüfprotokoll', meta: r.fields.pruefungsdatum })}
+        onOpen={onOpenPruefprotokoll}
+        onAdd={onAddPruefprotokoll}
+        getKey={r => r.record_id}
+      />
+
+      <RecordAttachments appId={APP_IDS.AUFTRAEGE} recordId={record.record_id} />
+    </>
+  );
+}
+
+```
+
+## src/components/details/AuftragspositionenDetails.tsx
+```
+import type { Auftragspositionen, Auftraege, Material } from '@/types/app';
+import { APP_IDS } from '@/types/app';
+import { extractRecordId } from '@/services/livingAppsService';
+import {
+  RecordSection, RecordField, RecordRelation, RecordAttachments,
+} from '@/components/widgets/RecordView';
+
+export interface AuftragspositionenDetailsProps {
+  /** Der Record — enriched oder roh; alle Felder werden hier gerendert. */
+  record: Auftragspositionen;
+  /** N:1-Ziel „Auftraege": volle Liste (Hook-Array) — der Block löst Name + Schlüsselfelder selbst auf. */
+  auftraegeList: Auftraege[];
+  /** Klick auf die Auftraege-Relation → overlay.push auf dessen Detail. */
+  onOpenAuftraege?: (record: Auftraege) => void;
+  /** N:1-Ziel „Material": volle Liste (Hook-Array) — der Block löst Name + Schlüsselfelder selbst auf. */
+  materialList: Material[];
+  /** Klick auf die Material-Relation → overlay.push auf dessen Detail. */
+  onOpenMaterial?: (record: Material) => void;
+}
+
+export function AuftragspositionenDetails({
+  record,
+  auftraegeList,
+  onOpenAuftraege,
+  materialList,
+  onOpenMaterial,
+}: AuftragspositionenDetailsProps) {
+  const auftragTarget = auftraegeList.find(r => r.record_id === extractRecordId(record.fields.auftrag));
+  const materialTarget = materialList.find(r => r.record_id === extractRecordId(record.fields.material));
+  return (
+    <>
+      <RecordSection title="Details" cols={2}>
+        <RecordField label="Positionsbeschreibung" value={record.fields.positionsbeschreibung} format="text" />
+        <RecordField label="Menge" value={record.fields.menge} format="text" />
+        <RecordField label="Einheit" value={record.fields.einheit_position} format="pill" />
+        <RecordField label="Bemerkung" value={record.fields.bemerkung} format="longtext" className="md:col-span-2" />
+      </RecordSection>
+
+      {/* N:1 — verknüpfte Records: IMMER klickbar, nie eine Text-Sackgasse. */}
+      <RecordSection title="Verknüpft" cols={2}>
+        <RecordRelation
+          label="Auftrag"
+          name={auftragTarget?.fields.auftragsnummer ?? '—'}
+          meta={[auftragTarget?.fields.monteur].filter(Boolean).join(' · ') || undefined}
+          onClick={auftragTarget && onOpenAuftraege ? () => onOpenAuftraege!(auftragTarget!) : undefined}
+        />
+        <RecordRelation
+          label="Material"
+          name={materialTarget?.fields.bezeichnung ?? '—'}
+          meta={[materialTarget?.fields.artikelnummer].filter(Boolean).join(' · ') || undefined}
+          onClick={materialTarget && onOpenMaterial ? () => onOpenMaterial!(materialTarget!) : undefined}
+        />
+      </RecordSection>
+
+      <RecordAttachments appId={APP_IDS.AUFTRAGSPOSITIONEN} recordId={record.record_id} />
+    </>
+  );
+}
+
+```
+
+## src/components/details/KundenDetails.tsx
+```
+import type { Kunden, Auftraege } from '@/types/app';
+import { APP_IDS } from '@/types/app';
+import { extractRecordId } from '@/services/livingAppsService';
+import {
+  RecordSection, RecordField, RecordRelation, RecordAttachments,
+} from '@/components/widgets/RecordView';
+import { SatelliteSection } from '@/components/SatelliteSection';
+
+export interface KundenDetailsProps {
+  /** Der Record — enriched oder roh; alle Felder werden hier gerendert. */
+  record: Kunden;
+  /** 1:N „Aufträge": VOLLE Liste — der Block filtert auf diesen Record. */
+  auftraegeList: Auftraege[];
+  /** Zeilen-Klick → overlay.push auf das Auftraege-Detail (nie der Edit-Dialog). */
+  onOpenAuftraege: (record: Auftraege) => void;
+  /** Kontextuelles „+": öffnet den Auftraege-Dialog mit diesem Record vorgesetzt. */
+  onAddAuftraege: () => void;
+}
+
+export function KundenDetails({
+  record,
+  auftraegeList,
+  onOpenAuftraege,
+  onAddAuftraege,
+}: KundenDetailsProps) {
+  return (
+    <>
+      <RecordSection title="Details" cols={2}>
+        <RecordField label="Vorname" value={record.fields.vorname} format="text" />
+        <RecordField label="Nachname" value={record.fields.nachname} format="text" />
+        <RecordField label="Firma" value={record.fields.firma} format="text" />
+        <RecordField label="Telefon" value={record.fields.telefon} format="text" />
+        <RecordField label="E-Mail" value={record.fields.email} format="email" />
+        <RecordField label="Straße" value={record.fields.strasse} format="text" />
+        <RecordField label="Hausnummer" value={record.fields.hausnummer} format="text" />
+        <RecordField label="Postleitzahl" value={record.fields.plz} format="text" />
+        <RecordField label="Ort" value={record.fields.ort} format="text" />
+        <RecordField label="Notizen" value={record.fields.notizen} format="longtext" className="md:col-span-2" />
+      </RecordSection>
+
+      <SatelliteSection
+        title="Aufträge"
+        items={auftraegeList.filter(r => extractRecordId(r.fields.kunde) === record.record_id)}
+        map={r => ({ name: r.fields.auftragsnummer ?? 'Aufträge', meta: r.fields.auftragsdatum })}
+        onOpen={onOpenAuftraege}
+        onAdd={onAddAuftraege}
+        getKey={r => r.record_id}
+      />
+
+      <RecordAttachments appId={APP_IDS.KUNDEN} recordId={record.record_id} />
+    </>
+  );
+}
+
+```
+
+## src/components/details/MaterialDetails.tsx
+```
+import type { Material, Auftragspositionen } from '@/types/app';
+import { APP_IDS } from '@/types/app';
+import { extractRecordId } from '@/services/livingAppsService';
+import {
+  RecordSection, RecordField, RecordRelation, RecordAttachments,
+} from '@/components/widgets/RecordView';
+import { SatelliteSection } from '@/components/SatelliteSection';
+
+export interface MaterialDetailsProps {
+  /** Der Record — enriched oder roh; alle Felder werden hier gerendert. */
+  record: Material;
+  /** 1:N „Auftragspositionen": VOLLE Liste — der Block filtert auf diesen Record. */
+  auftragspositionenList: Auftragspositionen[];
+  /** Zeilen-Klick → overlay.push auf das Auftragspositionen-Detail (nie der Edit-Dialog). */
+  onOpenAuftragspositionen: (record: Auftragspositionen) => void;
+  /** Kontextuelles „+": öffnet den Auftragspositionen-Dialog mit diesem Record vorgesetzt. */
+  onAddAuftragspositionen: () => void;
+}
+
+export function MaterialDetails({
+  record,
+  auftragspositionenList,
+  onOpenAuftragspositionen,
+  onAddAuftragspositionen,
+}: MaterialDetailsProps) {
+  return (
+    <>
+      <RecordSection title="Details" cols={2}>
+        <RecordField label="Materialbezeichnung" value={record.fields.bezeichnung} format="text" />
+        <RecordField label="Artikelnummer" value={record.fields.artikelnummer} format="text" />
+        <RecordField label="Einheit" value={record.fields.einheit} format="pill" />
+        <RecordField label="Lagerbestand (Menge)" value={record.fields.lagerbestand} format="text" />
+        <RecordField label="Mindestbestand" value={record.fields.mindestbestand} format="text" />
+        <RecordField label="Verfügbarkeit" value={record.fields.verfuegbarkeit} format="pill" />
+        <RecordField label="Notizen" value={record.fields.material_notizen} format="longtext" className="md:col-span-2" />
+      </RecordSection>
+
+      <SatelliteSection
+        title="Auftragspositionen"
+        items={auftragspositionenList.filter(r => extractRecordId(r.fields.material) === record.record_id)}
+        map={r => ({ name: r.fields.positionsbeschreibung ?? 'Auftragspositionen', meta: undefined })}
+        onOpen={onOpenAuftragspositionen}
+        onAdd={onAddAuftragspositionen}
+        getKey={r => r.record_id}
+      />
+
+      <RecordAttachments appId={APP_IDS.MATERIAL} recordId={record.record_id} />
+    </>
+  );
+}
+
+```
+
+## src/components/details/PruefprotokollDetails.tsx
+```
+import type { Pruefprotokoll, Auftraege } from '@/types/app';
+import { APP_IDS } from '@/types/app';
+import { extractRecordId } from '@/services/livingAppsService';
+import {
+  RecordSection, RecordField, RecordRelation, RecordAttachments,
+} from '@/components/widgets/RecordView';
+import { MediaThumbnail } from '@/components/widgets/MediaViewer';
+
+export interface PruefprotokollDetailsProps {
+  /** Der Record — enriched oder roh; alle Felder werden hier gerendert. */
+  record: Pruefprotokoll;
+  /** N:1-Ziel „Auftraege": volle Liste (Hook-Array) — der Block löst Name + Schlüsselfelder selbst auf. */
+  auftraegeList: Auftraege[];
+  /** Klick auf die Auftraege-Relation → overlay.push auf dessen Detail. */
+  onOpenAuftraege?: (record: Auftraege) => void;
+}
+
+export function PruefprotokollDetails({
+  record,
+  auftraegeList,
+  onOpenAuftraege,
+}: PruefprotokollDetailsProps) {
+  const auftrag_pruefTarget = auftraegeList.find(r => r.record_id === extractRecordId(record.fields.auftrag_pruef));
+  return (
+    <>
+      <RecordSection title="Details" cols={2}>
+        <RecordField label="Vorname des Monteurs" value={record.fields.monteur_name_vorname} format="text" />
+        <RecordField label="Nachname des Monteurs" value={record.fields.monteur_name_nachname} format="text" />
+        <RecordField label="Datum der Prüfung" value={record.fields.pruefungsdatum} format="datetime" />
+        <RecordField label="Prüfergebnis" value={record.fields.pruefergebnis} format="pill" />
+        <RecordField label="Mängelbeschreibung" value={record.fields.maengelbeschreibung} format="longtext" className="md:col-span-2" />
+        <RecordField label="Eingeleitete Maßnahmen" value={record.fields.massnahmen} format="longtext" className="md:col-span-2" />
+        <RecordField label="Fotos / Anhänge" className="md:col-span-2">
+          {record.fields.fotos ? (
+            <MediaThumbnail src={record.fields.fotos as string} fit="contain" className="max-h-64 w-full rounded-lg" />
+          ) : '—'}
+        </RecordField>
+        <RecordField label="Bemerkungen" value={record.fields.bemerkungen_pruef} format="longtext" className="md:col-span-2" />
+      </RecordSection>
+
+      {/* N:1 — verknüpfte Records: IMMER klickbar, nie eine Text-Sackgasse. */}
+      <RecordSection title="Verknüpft" cols={1}>
+        <RecordRelation
+          label="Auftrag"
+          name={auftrag_pruefTarget?.fields.auftragsnummer ?? '—'}
+          meta={[auftrag_pruefTarget?.fields.monteur].filter(Boolean).join(' · ') || undefined}
+          onClick={auftrag_pruefTarget && onOpenAuftraege ? () => onOpenAuftraege!(auftrag_pruefTarget!) : undefined}
+        />
+      </RecordSection>
+
+      <RecordAttachments appId={APP_IDS.PRUEFPROTOKOLL} recordId={record.record_id} />
+    </>
+  );
+}
+
+```
