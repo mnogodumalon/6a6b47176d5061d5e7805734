@@ -1,0 +1,1842 @@
+# Scaffold key file contents — part 1/1.
+Same rule as .scaffold_context: these files are pre-generated; never Read the source files themselves.
+
+## src/types/app.ts
+```
+// AUTOMATICALLY GENERATED TYPES - DO NOT EDIT
+
+export type LookupValue = { key: string; label: string };
+export type GeoLocation = { lat: number; long: number; info?: string };
+
+export type AttachmentType = 'file' | 'note' | 'url' | 'json';
+export interface Attachment {
+  id: string;
+  type: AttachmentType;
+  label: string | null;
+  value: string | null;
+  active: boolean;
+  createdat?: string | null;
+  updatedat?: string | null;
+}
+
+export interface AttachmentInput {
+  type: AttachmentType;
+  label?: string;
+  value: string;
+  active?: boolean;
+}
+
+export interface Kunden {
+  record_id: string;
+  /** The API field. */
+  created_at: string;
+  updated_at: string | null;
+  /** Alias of created_at, filled by the read helpers. The API sends
+   *  snake_case only — reading `createdat` off a raw record yields
+   *  undefined, which type-checks and then crashes at runtime. */
+  createdat: string;
+  updatedat: string | null;
+  fields: {
+    vorname?: string;
+    nachname?: string;
+    firma?: string;
+    telefon?: string;
+    email?: string;
+    strasse?: string;
+    hausnummer?: string;
+    plz?: string;
+    ort?: string;
+    notizen?: string;
+  };
+}
+
+export interface Material {
+  record_id: string;
+  /** The API field. */
+  created_at: string;
+  updated_at: string | null;
+  /** Alias of created_at, filled by the read helpers. The API sends
+   *  snake_case only — reading `createdat` off a raw record yields
+   *  undefined, which type-checks and then crashes at runtime. */
+  createdat: string;
+  updatedat: string | null;
+  fields: {
+    bezeichnung?: string;
+    artikelnummer?: string;
+    einheit?: LookupValue;
+    lagerbestand?: number;
+    mindestbestand?: number;
+    verfuegbarkeit?: LookupValue;
+    material_notizen?: string;
+  };
+}
+
+export interface Auftraege {
+  record_id: string;
+  /** The API field. */
+  created_at: string;
+  updated_at: string | null;
+  /** Alias of created_at, filled by the read helpers. The API sends
+   *  snake_case only — reading `createdat` off a raw record yields
+   *  undefined, which type-checks and then crashes at runtime. */
+  createdat: string;
+  updatedat: string | null;
+  fields: {
+    auftragsnummer?: string;
+    auftragsdatum?: string; // Format: YYYY-MM-DD oder ISO String
+    status?: LookupValue;
+    prioritaet?: LookupValue;
+    kunde?: string; // applookup -> URL zu 'Kunden' Record
+    auftragsbeschreibung?: string;
+    wunschtermin?: string; // Format: YYYY-MM-DD oder ISO String
+    liefertermin?: string; // Format: YYYY-MM-DD oder ISO String
+    monteur?: string;
+    auftrag_notizen?: string;
+  };
+}
+
+export interface Auftragspositionen {
+  record_id: string;
+  /** The API field. */
+  created_at: string;
+  updated_at: string | null;
+  /** Alias of created_at, filled by the read helpers. The API sends
+   *  snake_case only — reading `createdat` off a raw record yields
+   *  undefined, which type-checks and then crashes at runtime. */
+  createdat: string;
+  updatedat: string | null;
+  fields: {
+    auftrag?: string; // applookup -> URL zu 'Auftraege' Record
+    material?: string; // applookup -> URL zu 'Material' Record
+    positionsbeschreibung?: string;
+    menge?: number;
+    einheit_position?: LookupValue;
+    bemerkung?: string;
+  };
+}
+
+export interface Pruefprotokoll {
+  record_id: string;
+  /** The API field. */
+  created_at: string;
+  updated_at: string | null;
+  /** Alias of created_at, filled by the read helpers. The API sends
+   *  snake_case only — reading `createdat` off a raw record yields
+   *  undefined, which type-checks and then crashes at runtime. */
+  createdat: string;
+  updatedat: string | null;
+  fields: {
+    auftrag_pruef?: string; // applookup -> URL zu 'Auftraege' Record
+    monteur_name_vorname?: string;
+    monteur_name_nachname?: string;
+    pruefungsdatum?: string; // Format: YYYY-MM-DD oder ISO String
+    pruefergebnis?: LookupValue;
+    maengelbeschreibung?: string;
+    massnahmen?: string;
+    fotos?: string;
+    bemerkungen_pruef?: string;
+  };
+}
+
+export const APP_IDS = {
+  KUNDEN: '6a6b46f24aeb03e3fc0e5803',
+  MATERIAL: '6a6b46f99c583f55b2594c29',
+  AUFTRAEGE: '6a6b46f93a346f58e17d78e4',
+  AUFTRAGSPOSITIONEN: '6a6b46fa87658a7d930ef4ce',
+  PRUEFPROTOKOLL: '6a6b46fbc50e5e76e77f12eb',
+} as const;
+
+
+export const LOOKUP_OPTIONS: Record<string, Record<string, {key: string, label: string}[]>> = {
+  'material': {
+    einheit: [{ key: "stueck", label: "Stück" }, { key: "meter", label: "Meter" }, { key: "liter", label: "Liter" }, { key: "kilogramm", label: "Kilogramm" }, { key: "paket", label: "Paket" }, { key: "rolle", label: "Rolle" }, { key: "satz", label: "Satz" }],
+    verfuegbarkeit: [{ key: "verfuegbar", label: "Verfügbar" }, { key: "nicht_verfuegbar", label: "Nicht verfügbar" }, { key: "auf_bestellung", label: "Auf Bestellung" }],
+  },
+  'auftraege': {
+    status: [{ key: "offen", label: "Offen" }, { key: "in_bearbeitung", label: "In Bearbeitung" }, { key: "abgeschlossen", label: "Abgeschlossen" }, { key: "storniert", label: "Storniert" }],
+    prioritaet: [{ key: "niedrig", label: "Niedrig" }, { key: "normal", label: "Normal" }, { key: "hoch", label: "Hoch" }, { key: "dringend", label: "Dringend" }],
+  },
+  'auftragspositionen': {
+    einheit_position: [{ key: "stueck", label: "Stück" }, { key: "meter", label: "Meter" }, { key: "liter", label: "Liter" }, { key: "kilogramm", label: "Kilogramm" }, { key: "paket", label: "Paket" }, { key: "rolle", label: "Rolle" }, { key: "satz", label: "Satz" }],
+  },
+  'pruefprotokoll': {
+    pruefergebnis: [{ key: "nicht_bestanden", label: "Nicht bestanden" }, { key: "bestanden_mit_maengeln", label: "Bestanden mit Mängeln" }, { key: "bestanden", label: "Bestanden" }],
+  },
+};
+
+export const FIELD_TYPES: Record<string, Record<string, string>> = {
+  'kunden': {
+    'vorname': 'string/text',
+    'nachname': 'string/text',
+    'firma': 'string/text',
+    'telefon': 'string/tel',
+    'email': 'string/email',
+    'strasse': 'string/text',
+    'hausnummer': 'string/text',
+    'plz': 'string/text',
+    'ort': 'string/text',
+    'notizen': 'string/textarea',
+  },
+  'material': {
+    'bezeichnung': 'string/text',
+    'artikelnummer': 'string/text',
+    'einheit': 'lookup/select',
+    'lagerbestand': 'number',
+    'mindestbestand': 'number',
+    'verfuegbarkeit': 'lookup/select',
+    'material_notizen': 'string/textarea',
+  },
+  'auftraege': {
+    'auftragsnummer': 'string/text',
+    'auftragsdatum': 'date/date',
+    'status': 'lookup/select',
+    'prioritaet': 'lookup/radio',
+    'kunde': 'applookup/select',
+    'auftragsbeschreibung': 'string/textarea',
+    'wunschtermin': 'date/datetimeminute',
+    'liefertermin': 'date/datetimeminute',
+    'monteur': 'string/text',
+    'auftrag_notizen': 'string/textarea',
+  },
+  'auftragspositionen': {
+    'auftrag': 'applookup/select',
+    'material': 'applookup/select',
+    'positionsbeschreibung': 'string/text',
+    'menge': 'number',
+    'einheit_position': 'lookup/select',
+    'bemerkung': 'string/textarea',
+  },
+  'pruefprotokoll': {
+    'auftrag_pruef': 'applookup/select',
+    'monteur_name_vorname': 'string/text',
+    'monteur_name_nachname': 'string/text',
+    'pruefungsdatum': 'date/datetimeminute',
+    'pruefergebnis': 'lookup/radio',
+    'maengelbeschreibung': 'string/textarea',
+    'massnahmen': 'string/textarea',
+    'fotos': 'file',
+    'bemerkungen_pruef': 'string/textarea',
+  },
+};
+
+export const HUB_TOPOLOGY: Record<string, { field: string; entity: string }[]> = {
+};
+
+type StripLookup<T> = {
+  [K in keyof T]: T[K] extends LookupValue | undefined ? string | LookupValue | undefined
+    : T[K] extends LookupValue[] | undefined ? string[] | LookupValue[] | undefined
+    : T[K];
+};
+
+// Helper Types for creating new records (lookup fields as plain strings for API)
+export type CreateKunden = StripLookup<Kunden['fields']>;
+export type CreateMaterial = StripLookup<Material['fields']>;
+export type CreateAuftraege = StripLookup<Auftraege['fields']>;
+export type CreateAuftragspositionen = StripLookup<Auftragspositionen['fields']>;
+export type CreatePruefprotokoll = StripLookup<Pruefprotokoll['fields']>;
+```
+
+## src/services/livingAppsService.ts
+```
+// AUTOMATICALLY GENERATED SERVICE
+import { APP_IDS, LOOKUP_OPTIONS, FIELD_TYPES } from '@/types/app';
+import { ensureUploadableImage } from '@/lib/ai';
+import type { Kunden, Material, Auftraege, Auftragspositionen, Pruefprotokoll, CreateKunden, CreateMaterial, CreateAuftraege, CreateAuftragspositionen, CreatePruefprotokoll } from '@/types/app';
+
+// Base Configuration
+const API_BASE_URL = 'https://my.living-apps.de/rest';
+
+// --- HELPER FUNCTIONS ---
+export function extractRecordId(url: unknown): string | null {
+  if (!url) return null;
+  if (typeof url !== 'string') return null;
+  const match = url.match(/([a-f0-9]{24})$/i);
+  return match ? match[1] : null;
+}
+
+// multipleapplookup form-state is Array<URL>. The MultiCombobox picker
+// works on record-ids; this helper maps a raw form value (which may be
+// undefined, null, a single URL string from a legacy single-Combobox
+// render, or the expected URL array) to a clean string[] of ids.
+export function extractRecordIds(urls: unknown): string[] {
+  if (!urls) return [];
+  const arr = Array.isArray(urls) ? urls : [urls];
+  const out: string[] = [];
+  for (const u of arr) {
+    const id = extractRecordId(u);
+    if (id) out.push(id);
+  }
+  return out;
+}
+
+export function createRecordUrl(appId: string, recordId: string): string {
+  return `https://my.living-apps.de/rest/apps/${appId}/records/${recordId}`;
+}
+
+export class LivingAppsApiError extends Error {
+  status: number;
+  type?: string;
+  control_identifier?: string;
+  control_type?: string;
+  field_type?: string;
+  detail?: string;
+  constructor(message: string, status: number, raw?: Record<string, unknown>) {
+    super(message);
+    this.name = 'LivingAppsApiError';
+    this.status = status;
+    if (raw) {
+      this.type = typeof raw.type === 'string' ? raw.type : undefined;
+      this.control_identifier = typeof raw.control_identifier === 'string' ? raw.control_identifier : undefined;
+      this.control_type = typeof raw.control_type === 'string' ? raw.control_type : undefined;
+      this.field_type = typeof raw.field_type === 'string' ? raw.field_type : undefined;
+      this.detail = typeof raw.detail === 'string' ? raw.detail : undefined;
+    }
+  }
+}
+
+async function parseErrorBody(response: Response): Promise<{ message: string; raw?: Record<string, unknown> }> {
+  const text = await response.text();
+  if (!text) return { message: `HTTP ${response.status}` };
+  try {
+    const raw = JSON.parse(text);
+    if (raw && typeof raw === 'object') {
+      const obj = raw as Record<string, unknown>;
+      const message = typeof obj.detail === 'string' ? obj.detail
+        : typeof obj.title === 'string' ? obj.title
+        : text;
+      return { message, raw: obj };
+    }
+  } catch { /* fall through to text */ }
+  return { message: text };
+}
+
+export interface CallApiOptions {
+  /** Skip errorbus dispatch for expected failures (e.g. optional-param 404s). */
+  silent?: boolean;
+}
+
+/** What the create and update helpers resolve to. Same `record_id`
+ *  the read helpers expose, so the whole family behaves alike — the
+ *  raw REST answer only
+ *  carries `id`, and code that guessed (e.g. Object.keys(res)[0]) built
+ *  `/records/id` and got a 400 on the next write. */
+export interface MutationResult {
+  record_id: string;
+  id: string;
+  fields: Record<string, any>;
+  [key: string]: any;
+}
+
+async function callApi(method: string, endpoint: string, data?: any, options?: CallApiOptions) {
+  const silent = options?.silent === true;
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',  // Nutze Session Cookies für Auth
+      body: data ? JSON.stringify(data) : undefined
+    });
+  } catch (netErr) {
+    const message = netErr instanceof Error ? netErr.message : String(netErr);
+    if (!silent) {
+      window.dispatchEvent(new CustomEvent('errorbus:emit', { detail: {
+        source: 'network', message, status: 0,
+      } }));
+    }
+    throw netErr;
+  }
+  if (!response.ok) {
+    // 401/403 go to the login screen only — never to the errorbus (repair can't fix auth).
+    const isAuthError = response.status === 401 || response.status === 403;
+    if (isAuthError) window.dispatchEvent(new Event('auth-error'));
+    const { message, raw } = await parseErrorBody(response);
+    const err = new LivingAppsApiError(message, response.status, raw);
+    if (!silent && !isAuthError) {
+      window.dispatchEvent(new CustomEvent('errorbus:emit', { detail: {
+        source: 'api',
+        status: err.status,
+        type: err.type,
+        control_identifier: err.control_identifier,
+        control_type: err.control_type,
+        field_type: err.field_type,
+        detail: err.detail,
+        message: err.message,
+      } }));
+    }
+    throw err;
+  }
+  // DELETE returns often empty body or simple status
+  if (method === 'DELETE') return true;
+  return response.json();
+}
+
+/** Upload a file to LivingApps. Returns the file URL for use in record fields. */
+export async function uploadFile(file: File | Blob, filename?: string): Promise<string> {
+  // HEIC/HEIF (iPhone photos) crash the server-side image decoder (500).
+  // Convert to JPEG in the browser BEFORE upload — every upload path routes
+  // through here, so this one guard covers form fields AND attachments.
+  if (file instanceof File) file = await ensureUploadableImage(file);
+  const formData = new FormData();
+  formData.append('file', file, filename ?? (file instanceof File ? file.name : 'upload'));
+  const res = await fetch(`${API_BASE_URL}/files`, {
+    method: 'POST',
+    credentials: 'include',
+    body: formData,
+  });
+  if (!res.ok) {
+    if (res.status === 401 || res.status === 403) window.dispatchEvent(new Event('auth-error'));
+    throw new Error(`File upload failed: ${res.status}`);
+  }
+  const data = await res.json();
+  return data.url;
+}
+
+// --- ATTACHMENT API ---
+// Record-attachments: file/note/url/json blobs attached to a single record.
+// `getAttachments` returns a dict keyed by attachment id; we flatten to an array.
+export async function getRecordAttachments(appId: string, recordId: string) {
+  const data = await callApi('GET', `/apps/${appId}/records/${recordId}/attachments`, undefined, { silent: true }).catch(() => ({}));
+  if (!data || typeof data !== 'object') return [] as import('@/types/app').Attachment[];
+  return Object.entries(data).map(([id, att]) => ({ id, ...(att as Record<string, unknown>) })) as import('@/types/app').Attachment[];
+}
+
+export async function createRecordAttachment(appId: string, recordId: string, input: import('@/types/app').AttachmentInput) {
+  return callApi('POST', `/apps/${appId}/records/${recordId}/attachments`, input) as Promise<import('@/types/app').Attachment>;
+}
+
+export async function updateRecordAttachment(appId: string, recordId: string, attachmentId: string, input: Partial<import('@/types/app').AttachmentInput>) {
+  return callApi('PATCH', `/apps/${appId}/records/${recordId}/attachments/${attachmentId}`, input) as Promise<import('@/types/app').Attachment>;
+}
+
+export async function deleteRecordAttachment(appId: string, recordId: string, attachmentId: string) {
+  return callApi('DELETE', `/apps/${appId}/records/${recordId}/attachments/${attachmentId}`);
+}
+
+function enrichLookupFields<T extends { fields: Record<string, unknown> }>(
+  records: T[], entityKey: string
+): T[] {
+  const opts = LOOKUP_OPTIONS[entityKey];
+  if (!opts) return records;
+  return records.map(r => {
+    const fields = { ...r.fields };
+    for (const [fieldKey, options] of Object.entries(opts)) {
+      const val = fields[fieldKey];
+      if (typeof val === 'string') {
+        const m = options.find(o => o.key === val);
+        fields[fieldKey] = m ?? { key: val, label: val };
+      } else if (Array.isArray(val)) {
+        fields[fieldKey] = val.map(v => {
+          if (typeof v === 'string') {
+            const m = options.find(o => o.key === v);
+            return m ?? { key: v, label: v };
+          }
+          return v;
+        });
+      }
+    }
+    return { ...r, fields } as T;
+  });
+}
+
+/** Normalize fields for API writes: strip lookup objects to keys, fix date formats. */
+export function cleanFieldsForApi(
+  fields: Record<string, unknown>,
+  entityKey: string
+): Record<string, unknown> {
+  const clean: Record<string, unknown> = { ...fields };
+  // Strip virtual / unknown keys before they hit the API. Sub-agent invents
+  // computed-only keys (e.g. `_netto`, `_bestellung_gesamtbetrag`) for the
+  // 'Berechnungen' display, and a leaky submit-backfill would otherwise send
+  // them to the Living-Apps backend which rejects with 'field does not exist'.
+  const known = FIELD_TYPES[entityKey];
+  if (known) {
+    for (const k of Object.keys(clean)) {
+      if (!(k in known)) delete clean[k];
+    }
+  }
+  for (const [k, v] of Object.entries(clean)) {
+    if (v && typeof v === 'object' && !Array.isArray(v) && 'key' in v) clean[k] = (v as any).key;
+    if (Array.isArray(v)) clean[k] = v.map((item: any) => item && typeof item === 'object' && 'key' in item ? item.key : item);
+  }
+  const types = FIELD_TYPES[entityKey];
+  if (types) {
+    for (const [k, ft] of Object.entries(types)) {
+      if (!(k in clean)) continue;
+      const val = clean[k];
+      // applookup fields: undefined → null (clear single reference)
+      if ((ft === 'applookup/select' || ft === 'applookup/choice') && val === undefined) { clean[k] = null; continue; }
+      // multipleapplookup fields: undefined/null → [] (clear multi reference)
+      if ((ft === 'multipleapplookup/select' || ft === 'multipleapplookup/choice') && (val === undefined || val === null)) { clean[k] = []; continue; }
+      // lookup fields: undefined → null (clear single lookup)
+      if ((ft.startsWith('lookup/')) && val === undefined) { clean[k] = null; continue; }
+      // multiplelookup fields: undefined/null → [] (clear multi lookup)
+      if ((ft.startsWith('multiplelookup/')) && (val === undefined || val === null)) { clean[k] = []; continue; }
+      if (typeof val !== 'string' || !val) continue;
+      if (ft === 'date/datetimeminute') clean[k] = val.slice(0, 16);
+      else if (ft === 'date/date') clean[k] = val.slice(0, 10);
+    }
+  }
+  return clean;
+}
+
+let _cachedUserProfile: Record<string, unknown> | null = null;
+
+export async function getUserProfile(): Promise<Record<string, unknown>> {
+  if (_cachedUserProfile) return _cachedUserProfile;
+  const raw = await callApi('GET', '/user');
+  const skip = new Set(['id', 'image', 'lang', 'gender', 'title', 'fax', 'menus', 'initials']);
+  const data: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(raw)) {
+    if (v != null && !skip.has(k)) data[k] = v;
+  }
+  _cachedUserProfile = data;
+  return data;
+}
+
+export interface HeaderProfile {
+  firstname: string;
+  surname: string;
+  email: string;
+  image: string | null;
+  company: string | null;
+}
+
+let _cachedHeaderProfile: HeaderProfile | null = null;
+
+export async function getHeaderProfile(): Promise<HeaderProfile> {
+  if (_cachedHeaderProfile) return _cachedHeaderProfile;
+  const raw = await callApi('GET', '/user');
+  _cachedHeaderProfile = {
+    firstname: raw.firstname ?? '',
+    surname: raw.surname ?? '',
+    email: raw.email ?? '',
+    image: raw.image ?? null,
+    company: raw.company ?? null,
+  };
+  return _cachedHeaderProfile;
+}
+
+export interface AppGroupInfo {
+  id: string;
+  name: string;
+  image: string | null;
+  createdat: string;
+  /** Resolved link: /objects/{id}/ if the dashboard exists, otherwise /gateway/apps/{firstAppId}?template=list_page */
+  href: string;
+}
+
+let _cachedAppGroups: AppGroupInfo[] | null = null;
+
+export async function getAppGroups(): Promise<AppGroupInfo[]> {
+  if (_cachedAppGroups) return _cachedAppGroups;
+  const raw = await callApi('GET', '/appgroups?with=apps');
+  const groups: AppGroupInfo[] = Object.values(raw)
+    .map((g: any) => {
+      const firstAppId = Object.keys(g.apps ?? {})[0] ?? g.id;
+      return {
+        id: g.id,
+        name: g.name,
+        image: g.image ?? null,
+        // API field is created_at (snake_case) — the old camelCase read
+        // left every group '', silently disabling the newest-first sort.
+        createdat: g.created_at ?? g.createdat ?? '',
+        href: `/gateway/apps/${firstAppId}?template=list_page`,
+        _firstAppId: firstAppId,
+      };
+    })
+    .sort((a, b) => b.createdat.localeCompare(a.createdat));
+
+  // Check which appgroups have a deployed dashboard via app params
+  const paramChecks = await Promise.allSettled(
+    groups.map(g => callApi('GET', `/apps/${(g as any)._firstAppId}/params/la_page_header_additional_url`, undefined, { silent: true }))
+  );
+  paramChecks.forEach((result, i) => {
+    if (result.status !== 'fulfilled' || !result.value) return;
+    const url = result.value.value;
+    if (typeof url === 'string' && url.length > 0) {
+      try { groups[i].href = new URL(url).pathname; } catch { groups[i].href = url; }
+    }
+  });
+
+  // Clean up internal helper property
+  groups.forEach(g => delete (g as any)._firstAppId);
+
+  _cachedAppGroups = groups;
+  return _cachedAppGroups;
+}
+
+export class LivingAppsService {
+  // --- KUNDEN ---
+  static async getKunden(): Promise<Kunden[]> {
+    const data = await callApi('GET', `/apps/${APP_IDS.KUNDEN}/records`);
+    const records = Object.entries(data).map(([id, rec]: [string, any]) => ({
+      record_id: id, ...rec,
+      createdat: rec.created_at ?? '', updatedat: rec.updated_at ?? null,
+    })) as Kunden[];
+    return enrichLookupFields(records, 'kunden');
+  }
+  static async getKundenEntry(id: string): Promise<Kunden | undefined> {
+    const data = await callApi('GET', `/apps/${APP_IDS.KUNDEN}/records/${id}`);
+    const record = { record_id: data.id, ...data, createdat: data.created_at ?? '', updatedat: data.updated_at ?? null } as Kunden;
+    return enrichLookupFields([record], 'kunden')[0];
+  }
+  static async createKundenEntry(fields: CreateKunden): Promise<MutationResult> {
+    const data = await callApi('POST', `/apps/${APP_IDS.KUNDEN}/records`, { fields: cleanFieldsForApi(fields as any, 'kunden') });
+    return { ...data, record_id: data.id };
+  }
+  static async updateKundenEntry(id: string, fields: Partial<CreateKunden>): Promise<MutationResult> {
+    const data = await callApi('PATCH', `/apps/${APP_IDS.KUNDEN}/records/${id}`, { fields: cleanFieldsForApi(fields as any, 'kunden') });
+    return { ...data, record_id: data.id };
+  }
+  static async deleteKundenEntry(id: string) {
+    return callApi('DELETE', `/apps/${APP_IDS.KUNDEN}/records/${id}`);
+  }
+
+  // --- MATERIAL ---
+  static async getMaterial(): Promise<Material[]> {
+    const data = await callApi('GET', `/apps/${APP_IDS.MATERIAL}/records`);
+    const records = Object.entries(data).map(([id, rec]: [string, any]) => ({
+      record_id: id, ...rec,
+      createdat: rec.created_at ?? '', updatedat: rec.updated_at ?? null,
+    })) as Material[];
+    return enrichLookupFields(records, 'material');
+  }
+  static async getMaterialEntry(id: string): Promise<Material | undefined> {
+    const data = await callApi('GET', `/apps/${APP_IDS.MATERIAL}/records/${id}`);
+    const record = { record_id: data.id, ...data, createdat: data.created_at ?? '', updatedat: data.updated_at ?? null } as Material;
+    return enrichLookupFields([record], 'material')[0];
+  }
+  static async createMaterialEntry(fields: CreateMaterial): Promise<MutationResult> {
+    const data = await callApi('POST', `/apps/${APP_IDS.MATERIAL}/records`, { fields: cleanFieldsForApi(fields as any, 'material') });
+    return { ...data, record_id: data.id };
+  }
+  static async updateMaterialEntry(id: string, fields: Partial<CreateMaterial>): Promise<MutationResult> {
+    const data = await callApi('PATCH', `/apps/${APP_IDS.MATERIAL}/records/${id}`, { fields: cleanFieldsForApi(fields as any, 'material') });
+    return { ...data, record_id: data.id };
+  }
+  static async deleteMaterialEntry(id: string) {
+    return callApi('DELETE', `/apps/${APP_IDS.MATERIAL}/records/${id}`);
+  }
+
+  // --- AUFTRAEGE ---
+  static async getAuftraege(): Promise<Auftraege[]> {
+    const data = await callApi('GET', `/apps/${APP_IDS.AUFTRAEGE}/records`);
+    const records = Object.entries(data).map(([id, rec]: [string, any]) => ({
+      record_id: id, ...rec,
+      createdat: rec.created_at ?? '', updatedat: rec.updated_at ?? null,
+    })) as Auftraege[];
+    return enrichLookupFields(records, 'auftraege');
+  }
+  static async getAuftraegeEntry(id: string): Promise<Auftraege | undefined> {
+    const data = await callApi('GET', `/apps/${APP_IDS.AUFTRAEGE}/records/${id}`);
+    const record = { record_id: data.id, ...data, createdat: data.created_at ?? '', updatedat: data.updated_at ?? null } as Auftraege;
+    return enrichLookupFields([record], 'auftraege')[0];
+  }
+  static async createAuftraegeEntry(fields: CreateAuftraege): Promise<MutationResult> {
+    const data = await callApi('POST', `/apps/${APP_IDS.AUFTRAEGE}/records`, { fields: cleanFieldsForApi(fields as any, 'auftraege') });
+    return { ...data, record_id: data.id };
+  }
+  static async updateAuftraegeEntry(id: string, fields: Partial<CreateAuftraege>): Promise<MutationResult> {
+    const data = await callApi('PATCH', `/apps/${APP_IDS.AUFTRAEGE}/records/${id}`, { fields: cleanFieldsForApi(fields as any, 'auftraege') });
+    return { ...data, record_id: data.id };
+  }
+  static async deleteAuftraegeEntry(id: string) {
+    return callApi('DELETE', `/apps/${APP_IDS.AUFTRAEGE}/records/${id}`);
+  }
+
+  // --- AUFTRAGSPOSITIONEN ---
+  static async getAuftragspositionen(): Promise<Auftragspositionen[]> {
+    const data = await callApi('GET', `/apps/${APP_IDS.AUFTRAGSPOSITIONEN}/records`);
+    const records = Object.entries(data).map(([id, rec]: [string, any]) => ({
+      record_id: id, ...rec,
+      createdat: rec.created_at ?? '', updatedat: rec.updated_at ?? null,
+    })) as Auftragspositionen[];
+    return enrichLookupFields(records, 'auftragspositionen');
+  }
+  static async getAuftragspositionenEntry(id: string): Promise<Auftragspositionen | undefined> {
+    const data = await callApi('GET', `/apps/${APP_IDS.AUFTRAGSPOSITIONEN}/records/${id}`);
+    const record = { record_id: data.id, ...data, createdat: data.created_at ?? '', updatedat: data.updated_at ?? null } as Auftragspositionen;
+    return enrichLookupFields([record], 'auftragspositionen')[0];
+  }
+  static async createAuftragspositionenEntry(fields: CreateAuftragspositionen): Promise<MutationResult> {
+    const data = await callApi('POST', `/apps/${APP_IDS.AUFTRAGSPOSITIONEN}/records`, { fields: cleanFieldsForApi(fields as any, 'auftragspositionen') });
+    return { ...data, record_id: data.id };
+  }
+  static async updateAuftragspositionenEntry(id: string, fields: Partial<CreateAuftragspositionen>): Promise<MutationResult> {
+    const data = await callApi('PATCH', `/apps/${APP_IDS.AUFTRAGSPOSITIONEN}/records/${id}`, { fields: cleanFieldsForApi(fields as any, 'auftragspositionen') });
+    return { ...data, record_id: data.id };
+  }
+  static async deleteAuftragspositionenEntry(id: string) {
+    return callApi('DELETE', `/apps/${APP_IDS.AUFTRAGSPOSITIONEN}/records/${id}`);
+  }
+
+  // --- PRUEFPROTOKOLL ---
+  static async getPruefprotokoll(): Promise<Pruefprotokoll[]> {
+    const data = await callApi('GET', `/apps/${APP_IDS.PRUEFPROTOKOLL}/records`);
+    const records = Object.entries(data).map(([id, rec]: [string, any]) => ({
+      record_id: id, ...rec,
+      createdat: rec.created_at ?? '', updatedat: rec.updated_at ?? null,
+    })) as Pruefprotokoll[];
+    return enrichLookupFields(records, 'pruefprotokoll');
+  }
+  static async getPruefprotokollEntry(id: string): Promise<Pruefprotokoll | undefined> {
+    const data = await callApi('GET', `/apps/${APP_IDS.PRUEFPROTOKOLL}/records/${id}`);
+    const record = { record_id: data.id, ...data, createdat: data.created_at ?? '', updatedat: data.updated_at ?? null } as Pruefprotokoll;
+    return enrichLookupFields([record], 'pruefprotokoll')[0];
+  }
+  static async createPruefprotokollEntry(fields: CreatePruefprotokoll): Promise<MutationResult> {
+    const data = await callApi('POST', `/apps/${APP_IDS.PRUEFPROTOKOLL}/records`, { fields: cleanFieldsForApi(fields as any, 'pruefprotokoll') });
+    return { ...data, record_id: data.id };
+  }
+  static async updatePruefprotokollEntry(id: string, fields: Partial<CreatePruefprotokoll>): Promise<MutationResult> {
+    const data = await callApi('PATCH', `/apps/${APP_IDS.PRUEFPROTOKOLL}/records/${id}`, { fields: cleanFieldsForApi(fields as any, 'pruefprotokoll') });
+    return { ...data, record_id: data.id };
+  }
+  static async deletePruefprotokollEntry(id: string) {
+    return callApi('DELETE', `/apps/${APP_IDS.PRUEFPROTOKOLL}/records/${id}`);
+  }
+
+}
+```
+
+## src/App.tsx
+```
+import '@/lib/sentry';
+import { lazy, Suspense } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { ActionsProvider } from '@/context/ActionsContext';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { ErrorBusProvider } from '@/components/ErrorBus';
+import { Layout } from '@/components/Layout';
+import DashboardOverview from '@/pages/DashboardOverview';
+import AdminPage from '@/pages/AdminPage';
+import PublicPagesAdmin from '@/pages/PublicPagesAdmin';
+import KundenPage from '@/pages/KundenPage';
+import KundenDetailPage from '@/pages/KundenDetailPage';
+import MaterialPage from '@/pages/MaterialPage';
+import MaterialDetailPage from '@/pages/MaterialDetailPage';
+import AuftraegePage from '@/pages/AuftraegePage';
+import AuftraegeDetailPage from '@/pages/AuftraegeDetailPage';
+import AuftragspositionenPage from '@/pages/AuftragspositionenPage';
+import AuftragspositionenDetailPage from '@/pages/AuftragspositionenDetailPage';
+import PruefprotokollPage from '@/pages/PruefprotokollPage';
+import PruefprotokollDetailPage from '@/pages/PruefprotokollDetailPage';
+// <custom:imports>
+// </custom:imports>
+
+// Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
+// dashboard users never pay for them, anonymous visitors skip the dashboard.
+const PublicPage = lazy(() => import('@/pages/public/PublicPage'));
+
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <ErrorBusProvider>
+        <HashRouter>
+          <ActionsProvider>
+            <Routes>
+              <Route path="public/:slug" element={<Suspense fallback={null}><PublicPage /></Suspense>} />
+              <Route element={<Layout />}>
+                <Route index element={<DashboardOverview />} />
+                <Route path="kunden" element={<KundenPage />} />
+                <Route path="kunden/:id" element={<KundenDetailPage />} />
+                <Route path="material" element={<MaterialPage />} />
+                <Route path="material/:id" element={<MaterialDetailPage />} />
+                <Route path="auftraege" element={<AuftraegePage />} />
+                <Route path="auftraege/:id" element={<AuftraegeDetailPage />} />
+                <Route path="auftragspositionen" element={<AuftragspositionenPage />} />
+                <Route path="auftragspositionen/:id" element={<AuftragspositionenDetailPage />} />
+                <Route path="pruefprotokoll" element={<PruefprotokollPage />} />
+                <Route path="pruefprotokoll/:id" element={<PruefprotokollDetailPage />} />
+                <Route path="admin" element={<AdminPage />} />
+                <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
+                {/* <custom:routes> */}
+                {/* </custom:routes> */}
+              </Route>
+            </Routes>
+          </ActionsProvider>
+        </HashRouter>
+      </ErrorBusProvider>
+    </ErrorBoundary>
+  );
+}
+
+```
+
+## src/components/Layout.tsx
+```
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { IconAlertCircle } from '@tabler/icons-react';
+import { useState, useEffect, useRef } from 'react';
+import ChatWidget from '@/components/ChatWidget';
+import { ActionCodeDrawer } from '@/components/ActionCodeDrawer';
+import { ActionInputDialog } from '@/components/ActionInputDialog';
+import { ActionsSidebar } from '@/components/ActionsSidebar';
+import { IntentsNav } from '@/components/IntentsNav';
+import { PublicPagesNav } from '@/components/PublicPagesNav';
+import { useActions } from '@/context/ActionsContext';
+import { Button } from '@/components/ui/button';
+import { VersionCheck } from '@/components/VersionCheck';
+
+const APP_TITLE = 'Handwerk Pro';
+const APP_ID = '6a6b46f24aeb03e3fc0e5803';
+const APPGROUP_ID = '6a6b47176d5061d5e7805734';
+
+const IS_EMBED = new URLSearchParams(window.location.search).has('embed') || window.navigator.userAgent.startsWith('LivingAppsMobile');
+
+// Die la-Widgets lesen ihre UI-Sprache aus <html lang>; die statische
+// index.html steht auf "en" — die App-Sprache kennt nur der Generator.
+// Modul-Top-Level, damit es vor dem ersten Widget-Render gesetzt ist.
+document.documentElement.lang = 'de';
+
+export function Layout() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { inputFormAction, inputFormOptions, submitActionInputs, cancelInputForm } = useActions();
+  const [authError, setAuthError] = useState(false);
+  const drawerRef = useRef<HTMLElement>(null);
+  const dashboardLinkRef = useRef<HTMLElement>(null);
+  useEffect(() => { document.title = APP_TITLE; }, []);
+  useEffect(() => {
+    const handler = () => setAuthError(true);
+    window.addEventListener('auth-error', handler);
+    return () => window.removeEventListener('auth-error', handler);
+  }, []);
+
+  // Mobil startet der Drawer eingeklappt. Das collapsed-Attribut wird
+  // imperativ gesetzt (nicht als JSX-Prop), weil die Header-Bar es beim
+  // Toggle selbst setzt/entfernt — React darf es nicht zurückerobern.
+  useEffect(() => {
+    if (drawerRef.current && window.matchMedia('(max-width: 767.98px)').matches) {
+      drawerRef.current.setAttribute('collapsed', '');
+    }
+  }, []);
+
+  // Der Dashboard-Eintrag zeigt per App-Parameter auf genau diese Seite —
+  // statt sie neu zu laden (leave-page + location.assign), fangen wir das
+  // cancelbare Event ab und wechseln SPA-intern auf die Übersicht.
+  useEffect(() => {
+    const el = dashboardLinkRef.current;
+    if (!el) return;
+    const handler = (e: Event) => {
+      e.preventDefault();
+      navigate('/');
+      if (window.matchMedia('(max-width: 767.98px)').matches) {
+        el.closest('la-drawer')?.setAttribute('collapsed', '');
+      }
+    };
+    el.addEventListener('dashboard-link:action-request', handler);
+    return () => el.removeEventListener('dashboard-link:action-request', handler);
+  }, [navigate]);
+
+  // Aktiv-Zustand des Dashboard-Eintrags: la-dashboard-link-widget kennt
+  // (anders als la-app-group-nav-widget) kein here-Flag — Widget-Lücke.
+  // Wir spiegeln die here-Optik der Nachbarliste über ein zustandsabhängiges
+  // Stylesheet im offenen Shadow DOM. Interval-Fallback, weil der Loader
+  // asynchron lädt und das Shadow Root beim ersten Render fehlen kann.
+  const onDashboard = location.pathname === '/';
+  useEffect(() => {
+    const apply = () => {
+      const sr = dashboardLinkRef.current?.shadowRoot;
+      if (!sr) return false;
+      let style = sr.querySelector('style[data-here]');
+      if (!style) {
+        style = document.createElement('style');
+        style.setAttribute('data-here', '');
+        sr.appendChild(style);
+      }
+      // #d24601 = text-action-orange-dark der Widget-Library (here-Optik)
+      style.textContent = onDashboard
+        ? 'a { color: #d24601 !important; font-weight: 500; cursor: default; }'
+        : '';
+      return true;
+    };
+    if (apply()) return;
+    const timer = window.setInterval(() => { if (apply()) window.clearInterval(timer); }, 250);
+    return () => window.clearInterval(timer);
+  }, [onDashboard]);
+
+  return (
+    // Der body ist das App-Frame-Grid (Vorgabe Widget-Team, s. index.css):
+    // top/left/center-Areas. #root und dieser Wrapper sind display:contents,
+    // damit Header, Drawer und Content direkte Grid-Items werden. Die
+    // Area-Zuordnung von Header/Drawer liegt in index.css.
+    <div className="contents">
+      {!IS_EMBED && (
+        <la-header-bar-widget title={APP_TITLE} app-id={APP_ID}>
+          {/* app-id auch am Menü selbst: erst mit eigenem App-Kontext zeigt
+              es die Einstellungs-Sektion (Benutzerverwaltung, Datenansicht,
+              Klar KI, App kopieren, Anleitung, Struktur). */}
+          <la-apps-menu-widget slot="widgets" app-id={APP_ID} />
+          <la-profile-menu-widget slot="widgets" />
+        </la-header-bar-widget>
+      )}
+
+      {/* Overlay-Widgets, die Header (Contact) und Profil-Menü (Profil
+          bearbeiten / Sicherheit) per document.querySelector suchen und über
+          das open-Attribut öffnen — ohne diese Elemente verpuffen die Klicks
+          stumm. Bewusst NICHT in den Header geslottet: als Geschwister bleiben
+          ihre Modals außerhalb des Header-Stacking-Contexts (z-Leiste). */}
+      {!IS_EMBED && (
+        <>
+          <la-feedback-form-widget />
+          <la-user-profile-widget />
+          <la-security-widget />
+          {/* „Aktuelle App kopieren" im Apps-Menü sucht dieses Overlay per
+              querySelector; la-gua-widget (Benutzerverwaltung) erzeugt das
+              Menü dagegen selbst. */}
+          <la-app-group-copy-widget data-grp-id={APPGROUP_ID} />
+        </>
+      )}
+
+      {/* Drawer = Grid-Area "left" (Zuordnung in index.css): In-Flow-Spalte,
+          die den Content selbst verdrängt; eingeklappt ein schmaler Streifen
+          mit Hover-Peek. Mobil ein Fixed-Overlay (verlässt das Grid). */}
+      {!IS_EMBED && (
+        <la-drawer ref={drawerRef}>
+          {/* Darstellung-Umschalter — identisch zur Datenverwaltung: der
+              Dashboard-Eintrag (la-dashboard-link-widget) und die App-Liste
+              der Gruppe (la-app-group-nav-widget → /gateway-Listenseiten). */}
+          <la-nav-section type="secondary" label="Darstellung">
+            <la-dashboard-link-widget ref={dashboardLinkRef} app-id={APP_ID} />
+            {/* dense = kleinere Unterpunkt-Schrift (setzt --la-nav-text-size
+                im Sektions-Shadow) — exakt wie die Datenverwaltung im Gateway. */}
+            <la-nav-section type="primary" label="Datenverwaltung" icon="IconMenu2" dense="">
+              <la-app-group-nav-widget group-id={APPGROUP_ID} />
+            </la-nav-section>
+          </la-nav-section>
+
+          {/* Aktionen-Sektion (Figma-Muster): alles, was man TUN kann —
+              Abläufe und Öffentliche Seiten als aufklappbare Gruppen
+              (starten zu), Werkzeuge als schlichter Eintrag (öffnet den
+              ActionsDrawer), dann die Version als Meta-Zeile. Klar Lab und
+              die Entwickler/Beta-Toggles stecken im Versions-Panel. */}
+          <la-nav-section type="secondary" label="Aktionen">
+            <IntentsNav />
+            <ActionsSidebar />
+            <PublicPagesNav />
+            <div className="pt-2">
+              <VersionCheck />
+            </div>
+          </la-nav-section>
+
+          {/* Sticky Footer = dünne Meta-Zeile (Figma-Muster). Relative
+              Pfade, damit die Plattform-Seiten auf jedem Host stimmen. */}
+          <div slot="footer" className="flex flex-wrap gap-x-4 gap-y-1 border-t border-sidebar-border py-3 text-sm font-medium text-muted-foreground">
+            <a href="/impressum.htm" className="hover:text-foreground transition-colors">Impressum</a>
+            <a href="/datenschutz.htm" className="hover:text-foreground transition-colors">Datenschutz</a>
+            <a href="/apps.htm" className="hover:text-foreground transition-colors">LivingApps</a>
+          </div>
+        </la-drawer>
+      )}
+
+      <div className="[grid-area:center] min-w-0">
+        <main className={`max-w-screen-2xl ${IS_EMBED ? "p-2 lg:p-4" : "p-6 lg:p-8"}`}>
+          {authError ? (
+            <div className="flex flex-col items-center justify-center py-24 gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-destructive/10 flex items-center justify-center">
+                <IconAlertCircle size={22} className="text-destructive" />
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold text-foreground mb-1">Du bist nicht angemeldet.</h3>
+              </div>
+              <Button variant="outline" size="sm" onClick={() => {
+                window.location.href = `${window.location.origin}/login.htm?cugCoUrl=${encodeURIComponent(window.location.href)}`;
+              }}>Anmelden</Button>
+            </div>
+          ) : (
+            <Outlet />
+          )}
+        </main>
+      </div>
+
+      <ChatWidget />
+      <ActionCodeDrawer />
+
+      {inputFormAction && inputFormAction.metadata?.input_schema && (
+        <ActionInputDialog
+          action={inputFormAction}
+          schema={inputFormAction.metadata.input_schema}
+          options={inputFormOptions}
+          onSubmit={(inputs, files) => submitActionInputs(inputFormAction, inputs, files)}
+          onCancel={cancelInputForm}
+        />
+      )}
+    </div>
+  );
+}
+
+```
+
+## src/hooks/useDashboardData.ts
+```
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import type { Kunden, Material, Auftraege, Auftragspositionen, Pruefprotokoll } from '@/types/app';
+import { LivingAppsService } from '@/services/livingAppsService';
+
+/** Dashboard data + the OPTIMISTIC-WRITE API.
+ *
+ *  The per-entity setters (`set<Entity>`) are exported for exactly one job:
+ *  optimistic updates on drag writes (onEventDrop / onEventResize /
+ *  onCardMove). Call the setter FIRST — the bar/card lands instantly — then
+ *  fire the PATCH in the background and call `fetchAll()` ONLY in the catch.
+ *  Never await the PATCH before updating state (the UI freezes for the full
+ *  round-trip on every drag) and never refetch after a successful write.
+ *  There is no other mechanism (no `__optimistic`, no `mutate`).
+ */
+export function useDashboardData() {
+  const [kunden, setKunden] = useState<Kunden[]>([]);
+  const [material, setMaterial] = useState<Material[]>([]);
+  const [auftraege, setAuftraege] = useState<Auftraege[]>([]);
+  const [auftragspositionen, setAuftragspositionen] = useState<Auftragspositionen[]>([]);
+  const [pruefprotokoll, setPruefprotokoll] = useState<Pruefprotokoll[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  const fetchAll = useCallback(async () => {
+    setError(null);
+    try {
+      const [kundenData, materialData, auftraegeData, auftragspositionenData, pruefprotokollData] = await Promise.all([
+        LivingAppsService.getKunden(),
+        LivingAppsService.getMaterial(),
+        LivingAppsService.getAuftraege(),
+        LivingAppsService.getAuftragspositionen(),
+        LivingAppsService.getPruefprotokoll(),
+      ]);
+      setKunden(kundenData);
+      setMaterial(materialData);
+      setAuftraege(auftraegeData);
+      setAuftragspositionen(auftragspositionenData);
+      setPruefprotokoll(pruefprotokollData);
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error('Fehler beim Laden der Daten'));
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { fetchAll(); }, [fetchAll]);
+
+  // Silent background refresh (no loading state change → no flicker)
+  useEffect(() => {
+    async function silentRefresh() {
+      try {
+        const [kundenData, materialData, auftraegeData, auftragspositionenData, pruefprotokollData] = await Promise.all([
+          LivingAppsService.getKunden(),
+          LivingAppsService.getMaterial(),
+          LivingAppsService.getAuftraege(),
+          LivingAppsService.getAuftragspositionen(),
+          LivingAppsService.getPruefprotokoll(),
+        ]);
+        setKunden(kundenData);
+        setMaterial(materialData);
+        setAuftraege(auftraegeData);
+        setAuftragspositionen(auftragspositionenData);
+        setPruefprotokoll(pruefprotokollData);
+      } catch {
+        // silently ignore — stale data is better than no data
+      }
+    }
+    function handleRefresh() { void silentRefresh(); }
+    window.addEventListener('dashboard-refresh', handleRefresh);
+    return () => window.removeEventListener('dashboard-refresh', handleRefresh);
+  }, []);
+
+  const kundenMap = useMemo(() => {
+    const m = new Map<string, Kunden>();
+    kunden.forEach(r => m.set(r.record_id, r));
+    return m;
+  }, [kunden]);
+
+  const materialMap = useMemo(() => {
+    const m = new Map<string, Material>();
+    material.forEach(r => m.set(r.record_id, r));
+    return m;
+  }, [material]);
+
+  const auftraegeMap = useMemo(() => {
+    const m = new Map<string, Auftraege>();
+    auftraege.forEach(r => m.set(r.record_id, r));
+    return m;
+  }, [auftraege]);
+
+  return { kunden, setKunden, material, setMaterial, auftraege, setAuftraege, auftragspositionen, setAuftragspositionen, pruefprotokoll, setPruefprotokoll, loading, error, fetchAll, kundenMap, materialMap, auftraegeMap };
+}
+```
+
+## src/types/enriched.ts
+```
+import type { Auftraege, Auftragspositionen, Pruefprotokoll } from './app';
+
+export type EnrichedAuftraege = Auftraege & {
+  kundeName: string;
+};
+
+export type EnrichedAuftragspositionen = Auftragspositionen & {
+  auftragName: string;
+  materialName: string;
+};
+
+export type EnrichedPruefprotokoll = Pruefprotokoll & {
+  auftrag_pruefName: string;
+};
+
+```
+
+## src/lib/enrich.ts
+```
+import type { EnrichedAuftraege, EnrichedAuftragspositionen, EnrichedPruefprotokoll } from '@/types/enriched';
+import type { Auftraege, Auftragspositionen, Kunden, Material, Pruefprotokoll } from '@/types/app';
+import { extractRecordId } from '@/services/livingAppsService';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function resolveDisplay(url: unknown, map: Map<string, any>, ...fields: string[]): string {
+  if (!url) return '';
+  const id = extractRecordId(url);
+  if (!id) return '';
+  const r = map.get(id);
+  if (!r) return '';
+  return fields.map(f => String(r.fields[f] ?? '')).join(' ').trim();
+}
+
+interface AuftraegeMaps {
+  kundenMap: Map<string, Kunden>;
+}
+
+export function enrichAuftraege(
+  auftraege: Auftraege[],
+  maps: AuftraegeMaps
+): EnrichedAuftraege[] {
+  return auftraege.map(r => ({
+    ...r,
+    kundeName: resolveDisplay(r.fields.kunde, maps.kundenMap, 'vorname', 'nachname'),
+  }));
+}
+
+interface AuftragspositionenMaps {
+  auftraegeMap: Map<string, Auftraege>;
+  materialMap: Map<string, Material>;
+}
+
+export function enrichAuftragspositionen(
+  auftragspositionen: Auftragspositionen[],
+  maps: AuftragspositionenMaps
+): EnrichedAuftragspositionen[] {
+  return auftragspositionen.map(r => ({
+    ...r,
+    auftragName: resolveDisplay(r.fields.auftrag, maps.auftraegeMap, 'auftragsnummer'),
+    materialName: resolveDisplay(r.fields.material, maps.materialMap, 'bezeichnung'),
+  }));
+}
+
+interface PruefprotokollMaps {
+  auftraegeMap: Map<string, Auftraege>;
+}
+
+export function enrichPruefprotokoll(
+  pruefprotokoll: Pruefprotokoll[],
+  maps: PruefprotokollMaps
+): EnrichedPruefprotokoll[] {
+  return pruefprotokoll.map(r => ({
+    ...r,
+    auftrag_pruefName: resolveDisplay(r.fields.auftrag_pruef, maps.auftraegeMap, 'auftragsnummer'),
+  }));
+}
+
+```
+
+## src/lib/formatters.ts
+```
+import { format, parseISO } from 'date-fns';
+import { de } from 'date-fns/locale';
+
+export function formatDate(s: string | undefined) {
+  if (!s) return '—';
+  try { return format(parseISO(s), 'dd.MM.yyyy', { locale: de }); } catch { return s; }
+}
+
+export function formatDateTime(s: string | undefined) {
+  if (!s) return '—';
+  try { return format(parseISO(s), 'dd.MM.yyyy, HH:mm', { locale: de }); } catch { return s; }
+}
+
+export function formatCurrency(v: number | undefined) {
+  if (v == null) return '—';
+  return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(v);
+}
+
+/** Extract display label from lookup/select or lookup/radio API response */
+export function displayLookup(val: unknown, options?: {key: string, label: string}[]): string {
+  if (val == null) return '—';
+  if (typeof val === 'object' && val !== null && 'label' in val) return String((val as Record<string, unknown>).label);
+  if (options && typeof val === 'string') { const m = options.find(o => o.key === val); if (m) return m.label; }
+  return String(val);
+}
+
+/** Extract labels from multiplelookup/checkbox API response */
+export function displayMultiLookup(val: unknown, options?: {key: string, label: string}[]): string {
+  if (val == null) return '—';
+  if (Array.isArray(val)) return val.map(v => {
+    if (typeof v === 'object' && v !== null && 'label' in v) return String((v as Record<string, unknown>).label);
+    if (options && typeof v === 'string') { const m = options.find(o => o.key === v); if (m) return m.label; }
+    return String(v);
+  }).join(', ') || '—';
+  return displayLookup(val, options);
+}
+
+/** Extract key from lookup value (handles both {key,label} objects and plain strings) */
+export function lookupKey(val: unknown): string | undefined {
+  if (val == null) return undefined;
+  if (typeof val === 'object' && val !== null && 'key' in val) return String((val as Record<string, unknown>).key);
+  if (typeof val === 'string') return val;
+  return undefined;
+}
+
+/** Extract keys from multiplelookup value */
+export function lookupKeys(val: unknown): string[] {
+  if (!Array.isArray(val)) return [];
+  return val.map(v => typeof v === 'object' && v !== null && 'key' in v ? String((v as Record<string, unknown>).key) : String(v));
+}
+```
+
+## src/lib/ai.ts
+```
+import { Sentry } from "./sentry";
+
+const AI_ENDPOINT = "https://my.living-apps.de/litellm/v1/chat/completions";
+const AI_MODEL = "default";
+
+export type ChatMessage = {
+  role: "system" | "user" | "assistant";
+  content: string | Array<{ type: string; [key: string]: unknown }>;
+};
+
+type CompletionOptions = {
+  temperature?: number;
+  max_tokens?: number;
+  top_p?: number;
+  stop?: string[];
+  response_format?: { type: string };
+};
+
+export async function chatCompletion(
+  messages: ChatMessage[],
+  options: CompletionOptions = {}
+): Promise<string> {
+  const res = await fetch(AI_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({ model: AI_MODEL, messages, ...options }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`AI API ${res.status}: ${body}`);
+  }
+  const data = await res.json();
+  return data.choices[0].message.content;
+}
+
+export async function safeJsonCompletion<T = unknown>(
+  messages: ChatMessage[],
+  options: CompletionOptions = {}
+): Promise<T> {
+  const raw = await chatCompletion(messages, options);
+  const match = raw.match(/\{[\s\S]*\}|\[[\s\S]*\]/);
+  if (!match) throw new Error(`Expected JSON but got: ${raw.slice(0, 200)}`);
+  return JSON.parse(match[0]);
+}
+
+export async function withRetry<T>(fn: () => Promise<T>, maxAttempts = 3): Promise<T> {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      if (attempt === maxAttempts) throw err;
+      await new Promise((r) => setTimeout(r, 1000 * attempt));
+    }
+  }
+  throw new Error("unreachable");
+}
+
+// --- File encoding helpers ---
+
+const VISION_SUPPORTED_TYPES = new Set(["image/png", "image/jpeg", "image/webp", "image/gif"]);
+
+function needsImageConversion(file: File): boolean {
+  if (VISION_SUPPORTED_TYPES.has(file.type)) return false;
+  if (file.type.startsWith("image/")) return true;
+  const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
+  return ext === "heic" || ext === "heif";
+}
+
+function canvasConvertToJpeg(file: File): Promise<File> {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) { URL.revokeObjectURL(url); reject(new Error("Canvas not supported")); return; }
+      ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) { reject(new Error("Image conversion failed")); return; }
+          const name = file.name.replace(/\.[^.]+$/, ".jpg");
+          resolve(new File([blob], name, { type: "image/jpeg" }));
+        },
+        "image/jpeg",
+        0.92,
+      );
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error("Browser cannot decode this image natively"));
+    };
+    img.src = url;
+  });
+}
+
+/** Guards for the external HEIC converter. It runs libheif in a blob-URL Web
+ *  Worker; if a CSP or an ad/privacy blocker kills that worker, the underlying
+ *  promise can hang forever (no resolve, no reject) — leaving the user on an
+ *  infinite spinner. A timeout turns that hang into a reportable error. */
+const HEIC_SCRIPT_TIMEOUT_MS = 30000;
+const HEIC_DECODE_TIMEOUT_MS = 30000;
+
+function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms);
+    p.then(
+      (v) => { clearTimeout(timer); resolve(v); },
+      (e) => { clearTimeout(timer); reject(e); },
+    );
+  });
+}
+
+/** Report an image-conversion failure to Sentry with enough context to tell
+ *  browsers/formats apart later (captureException is a safe no-op when Sentry
+ *  has no DSN). Telemetry must never break the conversion path itself. */
+function reportConversionFailure(step: string, file: File, err: unknown): void {
+  try {
+    Sentry.captureException(err instanceof Error ? err : new Error(String(err)), {
+      tags: { source: "image_conversion", step },
+      contexts: {
+        upload: {
+          fileType: file.type || "(empty)",
+          fileName: file.name,
+          fileSizeKb: Math.round(file.size / 1024),
+        },
+      },
+    });
+  } catch {
+    /* Sentry unavailable */
+  }
+}
+
+let heicToLoaded: Promise<void> | null = null;
+
+function loadHeicTo(): Promise<void> {
+  if (heicToLoaded) return heicToLoaded;
+  heicToLoaded = new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = "https://my.living-apps.de/npm/heic-to/dist/iife/heic-to.js";
+    s.onload = () => resolve();
+    s.onerror = () => {
+      heicToLoaded = null;
+      reject(new Error("Failed to load HEIC converter"));
+    };
+    document.head.appendChild(s);
+  });
+  return heicToLoaded;
+}
+
+async function heicFallbackConvert(file: File): Promise<File> {
+  await withTimeout(loadHeicTo(), HEIC_SCRIPT_TIMEOUT_MS, "HEIC converter download");
+  const HT = (window as any).HeicTo;
+  if (!HT) throw new Error("HEIC converter not available");
+  const blob: Blob = await withTimeout(
+    HT({ blob: file, type: "image/jpeg", quality: 0.92 }),
+    HEIC_DECODE_TIMEOUT_MS,
+    "HEIC decode",
+  );
+  const name = file.name.replace(/\.[^.]+$/, ".jpg");
+  return new File([blob], name, { type: "image/jpeg" });
+}
+
+async function convertToJpeg(file: File): Promise<File> {
+  try {
+    return await canvasConvertToJpeg(file);
+  } catch {
+    // Non-Safari browsers can't decode HEIC natively and fall back to the
+    // external libheif converter. If THAT also fails (blocked script, CSP-killed
+    // worker, timeout), report it with context and surface an actionable message
+    // instead of a silent failure or an infinite spinner.
+    try {
+      return await heicFallbackConvert(file);
+    } catch (err) {
+      reportConversionFailure("heic_fallback", file, err);
+      throw new Error(
+        "Could not convert this photo. HEIC images are supported natively only in " +
+        "Safari — please re-upload it as JPEG (on iPhone: Settings > Camera > Formats " +
+        "> 'Most Compatible') or open this dashboard in Safari.",
+      );
+    }
+  }
+}
+
+/** Ensures a file is a server-acceptable image before it hits POST /files.
+ *  The Living-Apps upload endpoint decodes every image server-side and 500s on
+ *  HEIC ("cannot identify image file") — so HEIC/HEIF from an iPhone is
+ *  converted to JPEG in the browser FIRST (same Safari-canvas → libheif path as
+ *  the AI photo scan). Non-image files and already-web-safe images pass through
+ *  untouched. Throws an actionable Error if conversion fails (surface it in the
+ *  upload UI, don't swallow it). */
+export async function ensureUploadableImage(file: File): Promise<File> {
+  if (!needsImageConversion(file)) return file;
+  return convertToJpeg(file);
+}
+
+function readExifFromJpeg(buf: ArrayBuffer): DataView | null {
+  const view = new DataView(buf);
+  if (view.getUint16(0) !== 0xFFD8) return null;
+  let offset = 2;
+  while (offset < view.byteLength - 4) {
+    const marker = view.getUint16(offset);
+    if (marker === 0xFFE1) {
+      const len = view.getUint16(offset + 2);
+      const exifStart = offset + 4;
+      if (exifStart + 6 <= buf.byteLength
+          && view.getUint32(exifStart) === 0x45786966
+          && view.getUint16(exifStart + 4) === 0x0000) {
+        return new DataView(buf, exifStart + 6, len - 8);
+      }
+    }
+    if ((marker & 0xFF00) !== 0xFF00) break;
+    offset += 2 + view.getUint16(offset + 2);
+  }
+  return null;
+}
+
+function readExifFromHeic(buf: ArrayBuffer): DataView | null {
+  const view = new DataView(buf);
+  for (let s = 0; s < view.byteLength - 14; s++) {
+    if (view.getUint32(s) === 0x45786966 && view.getUint16(s + 4) === 0x0000) {
+      const t = s + 6;
+      const bo = view.getUint16(t);
+      if ((bo === 0x4949 || bo === 0x4D4D) && view.getUint16(t + 2, bo === 0x4949) === 42) {
+        return new DataView(buf, t);
+      }
+    }
+  }
+  return null;
+}
+
+function parseExifMeta(tiff: DataView): {
+  gps: { latitude: number; longitude: number } | null;
+  dateTime: string | null;
+} | null {
+  const len = tiff.byteLength;
+  if (len < 8) return null;
+  const le = tiff.getUint16(0) === 0x4949;
+  const g16 = (o: number) => o + 2 <= len ? tiff.getUint16(o, le) : 0;
+  const g32 = (o: number) => o + 4 <= len ? tiff.getUint32(o, le) : 0;
+  const rational = (o: number) => { const n = g32(o), d = g32(o + 4); return d ? n / d : 0; };
+  const ascii = (o: number, n: number) => {
+    let s = "";
+    for (let i = 0; i < n - 1 && o + i < len; i++) s += String.fromCharCode(tiff.getUint8(o + i));
+    return s;
+  };
+
+  const ifdOffset = g32(4);
+  if (!ifdOffset || ifdOffset + 2 > len) return null;
+  const count = g16(ifdOffset);
+  if (ifdOffset + 2 + count * 12 > len) return null;
+
+  let gpsOffset = 0, exifIfdOffset = 0, ifd0DateTime = "";
+  for (let i = 0; i < count; i++) {
+    const entry = ifdOffset + 2 + i * 12;
+    const tag = g16(entry);
+    if (tag === 0x8825) gpsOffset = g32(entry + 8);
+    if (tag === 0x8769) exifIfdOffset = g32(entry + 8);
+    if (tag === 0x0132) {
+      const cnt = g32(entry + 4);
+      const off = g32(entry + 8);
+      if (cnt >= 19 && off + cnt <= len) ifd0DateTime = ascii(off, cnt);
+    }
+  }
+
+  let dateTime: string | null = null;
+  if (exifIfdOffset && exifIfdOffset + 2 <= len) {
+    const exifCount = g16(exifIfdOffset);
+    if (exifIfdOffset + 2 + exifCount * 12 <= len) {
+      for (let i = 0; i < exifCount; i++) {
+        const entry = exifIfdOffset + 2 + i * 12;
+        if (g16(entry) === 0x9003) {
+          const cnt = g32(entry + 4);
+          const off = g32(entry + 8);
+          if (cnt >= 19 && off + cnt <= len) dateTime = ascii(off, cnt);
+          break;
+        }
+      }
+    }
+  }
+  if (!dateTime && ifd0DateTime) dateTime = ifd0DateTime;
+
+  let gps: { latitude: number; longitude: number } | null = null;
+  if (gpsOffset && gpsOffset + 2 <= len) {
+    const gpsCount = g16(gpsOffset);
+    if (gpsOffset + 2 + gpsCount * 12 <= len) {
+      let latRef = "", lngRef = "";
+      let latOff = 0, lngOff = 0;
+      for (let i = 0; i < gpsCount; i++) {
+        const entry = gpsOffset + 2 + i * 12;
+        const tag = g16(entry);
+        if (tag === 1) latRef = String.fromCharCode(tiff.getUint8(entry + 8));
+        if (tag === 2) latOff = g32(entry + 8);
+        if (tag === 3) lngRef = String.fromCharCode(tiff.getUint8(entry + 8));
+        if (tag === 4) lngOff = g32(entry + 8);
+      }
+      if (latOff && lngOff && latOff + 24 <= len && lngOff + 24 <= len) {
+        const toDec = (off: number) => rational(off) + rational(off + 8) / 60 + rational(off + 16) / 3600;
+        let latitude = toDec(latOff);
+        let longitude = toDec(lngOff);
+        if (latRef === "S") latitude = -latitude;
+        if (lngRef === "W") longitude = -longitude;
+        gps = { latitude, longitude };
+      }
+    }
+  }
+
+  if (!gps && !dateTime) return null;
+  return { gps, dateTime };
+}
+
+export async function extractPhotoMeta(file: File): Promise<{
+  gps: { latitude: number; longitude: number } | null;
+  dateTime: string | null;
+} | null> {
+  try {
+    const buf = await file.arrayBuffer();
+    const tiff = readExifFromJpeg(buf) ?? readExifFromHeic(buf);
+    if (!tiff) return null;
+    return parseExifMeta(tiff);
+  } catch {
+    return null;
+  }
+}
+
+export type ReverseGeocodeResult = {
+  /** Full human-readable address — fits GeoLocation.info. */
+  display: string;
+  /** Address components (Nominatim may omit any). Map these onto separate
+   *  address fields if the app has them (street / no. / zip / city). */
+  road?: string;
+  houseNumber?: string;
+  postcode?: string;
+  city?: string;
+};
+
+/** Reverse-geocode coordinates → a STRUCTURED address. `addressdetails=1` adds
+ *  the component breakdown, so a consumer can pre-fill separate fields (street,
+ *  zip, city) in addition to the full string. All components are optional. */
+export async function reverseGeocodeDetailed(lat: number, lng: number): Promise<ReverseGeocodeResult> {
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&addressdetails=1&lat=${lat}&lon=${lng}&accept-language=${navigator.language}`
+    );
+    const data = await res.json();
+    const a = data.address ?? {};
+    return {
+      display: data.display_name ?? "",
+      road: a.road ?? a.pedestrian ?? a.footway,
+      houseNumber: a.house_number,
+      postcode: a.postcode,
+      city: a.city ?? a.town ?? a.village ?? a.municipality,
+    };
+  } catch {
+    return { display: "" };
+  }
+}
+
+/** Backwards-compatible string form (the full address — for GeoLocation.info). */
+export async function reverseGeocode(lat: number, lng: number): Promise<string> {
+  return (await reverseGeocodeDetailed(lat, lng)).display;
+}
+
+/** FORWARD geocode: a free address string → the single best coordinate. Uses
+ *  Photon (Komoot/OSM) — the SAME source AddressAutocomplete uses, key-free and
+ *  built for search (unlike Nominatim, whose policy forbids per-keystroke use).
+ *  Returns null when nothing matches or the request was aborted. Forward
+ *  geocoding is inherently APPROXIMATE (an address resolves to one of several
+ *  candidates) — the caller should pair it with a visible, draggable map pin so
+ *  the result is confirmable, never write it silently as ground truth. */
+export async function geocodeAddress(
+  query: string,
+  signal?: AbortSignal,
+): Promise<{ lat: number; long: number; label: string } | null> {
+  const q = query.trim();
+  if (q.length < 3) return null;
+  try {
+    const lang = (navigator.language || "de").slice(0, 2);
+    const res = await fetch(
+      `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=1&lang=${lang}`,
+      { signal }
+    );
+    const data = await res.json();
+    const feat = data?.features?.[0];
+    const coords = feat?.geometry?.coordinates;
+    if (!Array.isArray(coords) || coords.length < 2) return null;
+    const [long, lat] = coords as [number, number];   // GeoJSON order is [long, lat]
+    if (typeof lat !== "number" || typeof long !== "number" || !Number.isFinite(lat) || !Number.isFinite(long)) return null;
+    const p = feat.properties ?? {};
+    const street = [p.street, p.housenumber].filter(Boolean).join(" ");
+    const label = [street || p.name, [p.postcode, p.city].filter(Boolean).join(" "), p.country]
+      .filter(Boolean)
+      .join(", ") || q;
+    return { lat, long, label };
+  } catch {
+    return null;
+  }
+}
+
+export async function fileToDataUri(file: File): Promise<string> {
+  let f = file;
+  if (needsImageConversion(f)) {
+    f = await convertToJpeg(f);
+  }
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(new Error("Failed to read file"));
+    reader.readAsDataURL(f);
+  });
+}
+
+export async function urlToDataUri(url: string): Promise<string> {
+  const res = await fetch(url);
+  const blob = await res.blob();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(new Error("Failed to encode file"));
+    reader.readAsDataURL(blob);
+  });
+}
+
+/** Convert a data URI back to a Blob (for file uploads) */
+export function dataUriToBlob(dataUri: string): Blob {
+  const [header, base64] = dataUri.split(',');
+  const mime = header.match(/:(.*?);/)?.[1] ?? 'application/octet-stream';
+  const bytes = atob(base64);
+  const arr = new Uint8Array(bytes.length);
+  for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
+  return new Blob([arr], { type: mime });
+}
+
+/** Synthesize a filename from a data URI's MIME type. OpenAI requires a
+ *  `filename` on every `file` content part (it derives the extension from it),
+ *  and the Responses API rejects the part outright without one — so a PDF sent
+ *  as `{ file: { file_data } }` alone fails with "Missing required parameter".
+ *  The name is only a hint for the MIME/extension, so a synthetic one is fine. */
+function filenameForDataUri(dataUri: string, base = "document"): string {
+  const mime = dataUri.match(/^data:([^;,]+)/)?.[1] ?? "application/octet-stream";
+  const ext = mime.split("/")[1]?.split("+")[0] ?? "bin";
+  return `${base}.${ext}`;
+}
+
+// --- High-level AI features ---
+
+export async function classify(
+  text: string,
+  categories: string[]
+): Promise<{ category: string; confidence: number }> {
+  return safeJsonCompletion([
+    {
+      role: "system",
+      content: [
+        "You are a classifier. Respond ONLY with valid JSON, nothing else.",
+        'Output format: {"category": "<one of the allowed categories>", "confidence": <0-1>}',
+        `Allowed categories: ${JSON.stringify(categories)}`,
+      ].join("\n"),
+    },
+    { role: "user", content: text },
+  ], { temperature: 0 });
+}
+
+export async function extract<T = Record<string, unknown>>(
+  text: string,
+  schemaDescription: string
+): Promise<T> {
+  return safeJsonCompletion([
+    {
+      role: "system",
+      content: [
+        "You are a data extraction engine. Respond ONLY with valid JSON matching the requested schema.",
+        "If a field cannot be determined from the input, use null.",
+        `Schema:\n${schemaDescription}`,
+      ].join("\n"),
+    },
+    { role: "user", content: text },
+  ], { temperature: 0 });
+}
+
+export async function summarize(
+  text: string,
+  options: { maxSentences?: number; language?: string } = {}
+): Promise<string> {
+  const { maxSentences = 3, language } = options;
+  const instructions = [
+    `Summarize the following text in at most ${maxSentences} sentences.`,
+    "Be concise and preserve key facts.",
+  ];
+  if (language) instructions.push(`Write the summary in ${language}.`);
+  return chatCompletion([
+    { role: "system", content: instructions.join(" ") },
+    { role: "user", content: text },
+  ]);
+}
+
+export async function translate(
+  text: string,
+  targetLanguage: string,
+  sourceLanguage?: string
+): Promise<string> {
+  const from = sourceLanguage ? ` from ${sourceLanguage}` : "";
+  return chatCompletion([
+    {
+      role: "system",
+      content: `Translate the following text${from} to ${targetLanguage}. Output ONLY the translation, nothing else.`,
+    },
+    { role: "user", content: text },
+  ]);
+}
+
+export async function analyzeImage(imageDataUri: string, prompt: string): Promise<string> {
+  return chatCompletion([
+    {
+      role: "user",
+      content: [
+        { type: "text", text: prompt },
+        { type: "image_url", image_url: { url: imageDataUri } },
+      ],
+    },
+  ]);
+}
+
+export async function analyzeDocument(fileDataUri: string, prompt: string): Promise<string> {
+  return chatCompletion([
+    {
+      role: "user",
+      content: [
+        { type: "text", text: prompt },
+        { type: "file", file: { filename: filenameForDataUri(fileDataUri), file_data: fileDataUri } },
+      ],
+    },
+  ]);
+}
+
+export async function extractFromInput<T = Record<string, unknown>>(
+  schemaDescription: string,
+  options: {
+    dataUri?: string;
+    userText?: string;
+    photoContext?: string;
+    intent?: string;
+  } = {}
+): Promise<T> {
+  const { dataUri, userText, photoContext, intent } = options;
+  const hasMedia = !!dataUri;
+  const hasText = !!userText?.trim();
+  if (!hasMedia && !hasText) {
+    throw new Error("Either dataUri or userText must be provided");
+  }
+  const isImage = hasMedia && dataUri!.startsWith("data:image/");
+  const mediaLabel = isImage ? "image" : "document";
+  const systemParts: string[] = [];
+  if (hasMedia && hasText) {
+    systemParts.push(
+      "Extract structured data from the provided " + mediaLabel + " and the user's text input.",
+      "The user's text may contain data to extract, additional context about the " + mediaLabel + ", specific instructions, or any combination. Use ALL provided information to fill the schema fields."
+    );
+  } else if (hasMedia) {
+    systemParts.push("Extract structured data from the provided " + mediaLabel + ".");
+  } else {
+    systemParts.push(
+      "Extract structured data from the user's text input.",
+      "The text may contain raw data, structured information, notes, emails, descriptions, or instructions. Extract all relevant information that matches the schema fields."
+    );
+  }
+  systemParts.push("Respond ONLY with valid JSON matching the schema.");
+  systemParts.push("Use null for any field that cannot be determined.");
+  if (intent) {
+    systemParts.push(`<user-intent>${intent}</user-intent>`);
+  }
+  if (photoContext) {
+    systemParts.push(photoContext);
+  }
+  systemParts.push(`Schema:\n${schemaDescription}`);
+  const userContent: Array<{ type: string; [key: string]: unknown }> = [];
+  const textParts: string[] = [];
+  if (hasMedia) {
+    textParts.push("Extract the data from this " + mediaLabel + ".");
+  }
+  if (hasText) {
+    textParts.push(`<user-input>\n${userText!.trim()}\n</user-input>`);
+  }
+  userContent.push({ type: "text", text: textParts.join("\n") });
+  if (hasMedia) {
+    userContent.push(
+      isImage
+        ? { type: "image_url", image_url: { url: dataUri! } }
+        : { type: "file", file: { filename: filenameForDataUri(dataUri!), file_data: dataUri! } }
+    );
+  }
+  return safeJsonCompletion([
+    { role: "system", content: systemParts.join("\n") },
+    { role: "user", content: userContent },
+  ]);
+}
+
+/** @deprecated Use extractFromInput instead */
+export const extractFromPhoto = <T = Record<string, unknown>>(
+  dataUri: string,
+  schemaDescription: string,
+  photoContext?: string,
+  intent?: string
+) => extractFromInput<T>(schemaDescription, { dataUri, photoContext, intent });
+
+```
+
+## src/config/ai-features.ts
+```
+/**
+ * AI feature toggles per entity.
+ * Set to true to show "Foto scannen" button in the create/edit dialog.
+ * The agent can change these values — all other AI files are pre-generated.
+ */
+
+export const AI_PHOTO_SCAN: Record<string, boolean> = {
+  Kunden: true,
+  Material: true,
+  Auftraege: true,
+  Auftragspositionen: true,
+  Pruefprotokoll: true,
+};
+
+/**
+ * Extract GPS coordinates from photo EXIF metadata and use them
+ * to provide location context (reverse geocoding) to the AI extraction
+ * and to auto-populate geo fields.
+ */
+export const AI_PHOTO_LOCATION: Record<string, boolean> = {
+  Kunden: true,
+  Material: true,
+  Auftraege: true,
+  Auftragspositionen: true,
+  Pruefprotokoll: true,
+};
+```

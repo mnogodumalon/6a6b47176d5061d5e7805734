@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Handwerksbetrieb GmbH",
+    "email": "max.mueller@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "telefon": "z. B. 030-123456",
+    "notizen": "Besonderheiten, Zahlungsbedingungen, Ansprechperson..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlwinkel 50×50",
+    "artikelnummer": "z. B. SW-50-50",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 25",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Aktueller Status",
+    "material_notizen": "Lagerfach, Hersteller, besondere Lagerungsbedingungen..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Heute oder Empfangsdatum?",
+    "status": "Markiere den aktuellen Status",
+    "prioritaet": "Wie dringend ist der Auftrag?",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was soll geleistet werden? Maße, Materialien, besondere Anforderungen...",
+    "wunschtermin": "Bis wann sollte es fertig sein?",
+    "liefertermin": "Geplantes Fertigstellungsdatum",
+    "monteur": "z. B. Max Weber",
+    "auftrag_notizen": "Spezielle Anforderungen, Besonderheiten, Baustelleninfo..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material wird verwendet?",
+    "positionsbeschreibung": "z. B. Fassadenverkleidung Ostseite",
+    "menge": "z. B. 50",
+    "einheit_position": "Wie wird gemessen?",
+    "bemerkung": "Zuschnittmaße, Oberflächenbehandlung, spezielle Anforderungen..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Max",
+    "monteur_name_nachname": "z. B. Weber",
+    "pruefungsdatum": "Wann war die Prüfung?",
+    "pruefergebnis": "Wie lautet das Ergebnis?",
+    "maengelbeschreibung": "Was wurde beanstandet? (optional)",
+    "massnahmen": "Wie sollen Mängel behoben werden? (optional)",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}

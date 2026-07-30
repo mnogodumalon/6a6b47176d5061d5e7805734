@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Kontaktinformationen). Keine berechenbaren Felder, keine Preise, keine Applookup-Ketten mit numerischen Targets. Adress-Paarung für Layout nur."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerbestandsverwaltung ohne Preisfelder. Bestand und Mindestbestand sind reine Eingaben (keine Formeln). Verfügbarkeit erhält Default-Status."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "prioritaet", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftrags-Stammdaten mit Datums-Workflow (Auftrag → Wunsch → Lieferung). Keine Preisfelder, keine berechenbaren Größen. Status und Priorität erhalten Defaults."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionsdetails pro Auftrag mit Menge. Material-Applookup hat kein Preis-Target (nur Lagerbestand/Mindestbestand). Keine Preis-Formel möglich ohne Backend-Feld."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Inspektionsprotokoll ohne Preisfelder. Prüfungsdatum (Erfassungs-Semantik) und Prüfergebnis (radio Status) erhalten Defaults. Keine berechenbaren Größen."
+    }
+  }
+}
