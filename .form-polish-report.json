@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Kontaktinformationen: Name, Email, Adresse, Telefon). Keine number-Felder, keine Datumspaarungen, keine Applookup-Verkettungen — keine Berechnungen möglich."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["einheit", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Bestandsverwaltung mit lagerbestand/mindestbestand als reine Schwellwerte, aber keine Preis-Verlinkung (target_numeric_fields enthalten keine Preise). Keine Berechnungen möglich."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Datumspaar und Lookup-Felder (status, priorität). Applookup auf Kunden hat keine target_numeric_fields mit Preis — keine Kosten-Berechnungen möglich. Reine Textfelder und Termine."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Satelliten-Entity zu Aufträge + Material mit menge-Feld, aber Applookup auf Material liefert nur lagerbestand/mindestbestand (keine Preis-Spalten). Ohne Preis-Ziel keine Kosten-Berechnungen; reine Mengen und Textfelder."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Prüfdokumentation mit Datum und Lookup-Feld (pruefergebnis). Applookup auf Aufträge (keine numeric targets), nur Textfelder und Monteur-Name-Pair. Keine Berechnungen möglich."
+    }
+  },
+  "summary": "Alle 5 Entities sind reine CRUD-Stammdaten oder Dokumentation ohne Berechnung. Kein Backend-Schema mit expliziten Preisen oder Kosten-Feldern, daher keine Geschäfts-Arithmetik (Menge × Preis, Netto + MwSt, Stundenhonorar) nötig. Placeholders und einfache Defaults (Datum heute, Status offen, Menge 1) decken alle Use-Cases ab."
+}

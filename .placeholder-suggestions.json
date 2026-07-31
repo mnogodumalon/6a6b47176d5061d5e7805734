@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "telefon": "z. B. 030 12345678",
+    "email": "max@beispiel.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besondere Wünsche, Rabatte, Zahlungskonditionen..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlprofil 40x40",
+    "artikelnummer": "z. B. SP-404001",
+    "einheit": "z. B. Meter",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 50",
+    "verfuegbarkeit": "z. B. Verfügbar",
+    "material_notizen": "Lagerlocation, Lieferant, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AF-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "z. B. Offen",
+    "prioritaet": "z. B. Normal",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Welche Arbeiten? Umfang, Material, Besonderheiten...",
+    "wunschtermin": "Wunschtermin einplanen?",
+    "liefertermin": "Liefertermin einplanen?",
+    "monteur": "z. B. Schmitz, Peter",
+    "auftrag_notizen": "Besonderheiten, Zugangswünsche, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Vorderseite inkl. Eckverbinder",
+    "menge": "z. B. 4",
+    "einheit_position": "z. B. Meter",
+    "bemerkung": "Besonderheiten, Zuschnitte, Oberflächenbehandlung..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Zu welchem Auftrag?",
+    "monteur_name_vorname": "z. B. Peter",
+    "monteur_name_nachname": "z. B. Schmitz",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "z. B. Bestanden",
+    "maengelbeschreibung": "Was wurde beanstandet? Spezifische Abweichungen...",
+    "massnahmen": "Was muss korrigiert werden? Fristen, Verantwortung...",
+    "bemerkungen_pruef": "Notizen zum Prüfablauf, Beobachtungen..."
+  }
+}
