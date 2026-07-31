@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Namen, Adresse, Kontakt, Notizen) — keine numerischen Felder, keine Datumspaare, keine berechenbaren Größen"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerbestand-Stammdaten mit zwei Mengenfeldern — kein applookup mit Preis-Target, keine Multiplikation sinnvoll. Verfügbarkeit pre-belegt mit Default 'Verfügbar'"
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["auftragsdatum", "status", "prioritaet", "wunschtermin"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Datum und Status — keine numerischen Felder, keine Preiskalkulationen. Defaults: heute + Status 'Offen' + Priorität 'Normal' + Wunschtermin +3 Tage"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Posten ohne Preisfelder — applookup auf Material liefert Lagerdaten, nicht Verkaufspreise. Menge pre-belegt mit 1. Keine computed ohne explizite Preis-Zielfelder"
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Inspektionsprotokoll mit Datum und Ergebnis-Kategorien — reine Dokumentation ohne numerische Berechnungen. Defaults: Prüfdatum heute + Ergebnis 'Bestanden'"
+    }
+  }
+}

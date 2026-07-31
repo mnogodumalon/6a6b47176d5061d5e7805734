@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Peter",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. peter@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "telefon": "z. B. 030 12345678",
+    "notizen": "Besonderheiten, Zahlungsbedingungen, Firmenzugehörigkeit..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Holzschrauben 4×50",
+    "artikelnummer": "z. B. SKU-001234",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 20",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Hersteller, Lagerort, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-0042",
+    "auftragsdatum": "Datum des Auftrags",
+    "status": "Status des Auftrags",
+    "prioritaet": "Priorität setzen",
+    "kunde": "Kunde aus der Liste wählen",
+    "auftragsbeschreibung": "Was soll gemacht werden? Umfang, Anforderungen...",
+    "wunschtermin": "Gewünschtes Abschlussdatum",
+    "liefertermin": "Geplantes Lieferdatum",
+    "monteur": "z. B. Hans Schmidt",
+    "auftrag_notizen": "Notizen, Besonderheiten, offene Punkte..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag gehört diese Position?",
+    "material": "Welches Material wird benötigt?",
+    "positionsbeschreibung": "z. B. Beschichtung, Montage",
+    "menge": "z. B. 25",
+    "einheit_position": "Einheit der Menge",
+    "bemerkung": "Spezielle Anforderungen, Besonderheiten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Zu welchem Auftrag gehört die Prüfung?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Schmidt",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Prüfergebnis wählen",
+    "maengelbeschreibung": "Welche Mängel wurden gefunden?",
+    "massnahmen": "Wie werden die Mängel behoben?",
+    "bemerkungen_pruef": "Weitere Anmerkungen zum Prüfprotokoll..."
+  }
+}
