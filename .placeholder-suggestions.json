@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Mustermann",
+    "firma": "z. B. Musterfirma GmbH",
+    "telefon": "z. B. +49 30 123456",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Absprachen, Kontaktperson..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Zement 32,5 R",
+    "artikelnummer": "z. B. ART-0815",
+    "einheit": "z. B. Kilogramm, Liter",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 50",
+    "verfuegbarkeit": "z. B. Verfügbar, Auf Bestellung",
+    "material_notizen": "Lagerlocation, Lieferant, besondere Lagerung..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Heute oder Auftragstag",
+    "status": "z. B. Offen, In Bearbeitung",
+    "prioritaet": "z. B. Normal, Hoch, Dringend",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Leistungsumfang, Anforderungen, besondere Wünsche...",
+    "wunschtermin": "Wunsch-Deadline (mit Uhrzeit)",
+    "liefertermin": "Geplante Fertigstellung (mit Uhrzeit)",
+    "monteur": "z. B. Hans Müller",
+    "auftrag_notizen": "Besonderheiten, Absprachen, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Rohre ND 20mm",
+    "menge": "z. B. 5",
+    "einheit_position": "z. B. Meter, Kilogramm",
+    "bemerkung": "Hinweise zur Position, Besonderheiten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann war die Prüfung?",
+    "pruefergebnis": "z. B. Bestanden, Bestanden mit Mängeln",
+    "maengelbeschreibung": "Gefundene Mängel, Abweichungen...",
+    "massnahmen": "Behebung, Reparatur, Nacharbeit...",
+    "bemerkungen_pruef": "Allgemeine Anmerkungen, Besonderheiten..."
+  }
+}

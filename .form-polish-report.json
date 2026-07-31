@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Adresse, Kontakt). Keine numerischen Felder oder Beziehungen, die Berechnungen rechtfertigen würden."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["lagerbestand", "mindestbestand", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Materialverwaltung mit Lagerbestandstracking. Keine Preis- oder Kostenfelder, daher keine Multiplikationen nötig. Defaults setzen Standardwerte für Lagermenge (0) und Verfügbarkeitsstatus (verfügbar)."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Datumspaarung und Status-Lookup. Keine numerischen Felder und kein applookup auf Preis-Target (Kunden-Entity hat keine Kosten). Defaults setzen Erfassungsdatum und typische Terminfristen."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Materialpositionen im Auftrag mit Menge. Das applookup auf Material hat nur Lagerbestand-Felder (keine Preise), daher kein Produkt-Archetyp. Menge defaultet auf 1. Reine Beschaffungsverwaltung ohne Kostenrechnung."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Qualitätssicherung und Prüfdokumentation. Keine numerischen Berechnung, keine Zeitspannen-Multiplikation. Datum defaultet auf heute mit Uhrzeit, Ergebnis defaultet auf optimistische Vorwahl (Bestanden)."
+    }
+  }
+}
