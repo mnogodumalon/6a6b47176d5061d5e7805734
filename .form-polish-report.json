@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Adresse, Kontakt) — nichts berechenbar. Keine Number-Felder, keine Datumspaar, keine Applookup auf Preis-Targets."
+    },
+    "Material": {
+      "placeholders_set": 6,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerverwaltung mit Mengen und Verfügbarkeits-Status. Keine Preis-Applookup, daher keine Kostenformeln. Verfügbarkeit erhält Default 'verfügbar'."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Datumspair (Wunsch/Liefertermin) und Status-Lookup. Keine Number-Felder für Preise oder Mengen — keine Berechnung möglich. Status erhält Default 'offen', Liefertermin Default heute+7 Tage."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionen je Auftrag mit Menge und Einheit. Applookup auf Material enthält keine Preis-Felder (nur Lagerbestand/Mindestbestand). Menge erhält Default 1. Keine Kostenformeln."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Inspektions- und Prüfprotokoll-Verwaltung mit Datumsstempel und Prüfergebnis-Lookup. Keine Number-Felder, daher keine Berechnungen. Pruefungsdatum erhält Default heute mit Zeit."
+    }
+  }
+}

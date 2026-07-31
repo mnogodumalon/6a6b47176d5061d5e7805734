@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "telefon": "z. B. +49 30 123456",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42a",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Vertragsdetails, Kommunikationswünsche..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Wandfarbe Weiß",
+    "artikelnummer": "z. B. WF-2026-001",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 24",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Wähle die Verfügbarkeit",
+    "material_notizen": "Lagerort, Supplier, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann ist der Auftrag eingegangen?",
+    "status": "Wähle einen Status",
+    "prioritaet": "Wähle die Priorität",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Beschreibung der Arbeiten, Material, spezielle Anforderungen...",
+    "wunschtermin": "Wann soll es fertig sein?",
+    "liefertermin": "Termin für Abholung/Lieferung",
+    "monteur": "z. B. Michael S.",
+    "auftrag_notizen": "Besonderheiten, Absprachen, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Hauptwand streichen",
+    "menge": "z. B. 10",
+    "einheit_position": "Wähle eine Einheit",
+    "bemerkung": "Details, Abweichungen, Spezifikationen..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag?",
+    "monteur_name_vorname": "z. B. Michael",
+    "monteur_name_nachname": "z. B. Schmidt",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Wähle das Ergebnis",
+    "maengelbeschreibung": "Beschreibung der gefundenen Mängel...",
+    "massnahmen": "Welche Maßnahmen sind erforderlich?",
+    "bemerkungen_pruef": "Sonstige Anmerkungen, Dokumentation..."
+  }
+}
