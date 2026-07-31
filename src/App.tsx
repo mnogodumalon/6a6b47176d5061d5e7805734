@@ -20,6 +20,8 @@ import AuftragspositionenDetailPage from '@/pages/AuftragspositionenDetailPage';
 import PruefprotokollPage from '@/pages/PruefprotokollPage';
 import PruefprotokollDetailPage from '@/pages/PruefprotokollDetailPage';
 // <custom:imports>
+const AuftragAnlegenPage = lazy(() => import('@/pages/intents/AuftragAnlegenPage'));
+const AuftragAbschlussenPage = lazy(() => import('@/pages/intents/AuftragAbschlussenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -49,6 +51,8 @@ export default function App() {
                 <Route path="admin" element={<AdminPage />} />
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 {/* <custom:routes> */}
+                <Route path="intents/auftrag-anlegen" element={<Suspense fallback={null}><AuftragAnlegenPage /></Suspense>} />
+                <Route path="intents/auftrag-abschliessen" element={<Suspense fallback={null}><AuftragAbschlussenPage /></Suspense>} />
                 {/* </custom:routes> */}
               </Route>
             </Routes>
