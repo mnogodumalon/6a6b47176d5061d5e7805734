@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Baumeister GmbH",
+    "telefon": "z. B. 030 12345678",
+    "email": "z. B. max@beispiel.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besondere Wünsche, Lieferbedingungen, Kontaktperson..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlrohr DN 25",
+    "artikelnummer": "z. B. SR-DN25-2m",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 12",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Lagerlocation, Qualität, Lieferant..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AF-2026-0042",
+    "auftragsdatum": "Heute oder später?",
+    "status": "Aktuellen Status setzen",
+    "prioritaet": "z. B. Normal, Hoch, Dringend",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was soll gemacht werden? Umfang, Anforderungen, Besonderheiten...",
+    "wunschtermin": "Wann gewünscht?",
+    "liefertermin": "Wann fertig?",
+    "monteur": "z. B. Max Schmidt",
+    "auftrag_notizen": "Spezielle Anforderungen, Anmerkungen..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Rohverlegung Wohnzimmer",
+    "menge": "z. B. 2",
+    "einheit_position": "Wähle eine Einheit",
+    "bemerkung": "Spezielle Anweisung, Qualität, Lieferant..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag?",
+    "monteur_name_vorname": "z. B. Max",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann geprüft?",
+    "pruefergebnis": "Prüfergebnis wählen",
+    "maengelbeschreibung": "Welche Mängel gefunden? Standort, Typ, Beschreibung...",
+    "massnahmen": "Wie beheben? Reihenfolge, Frist, Verursacher...",
+    "bemerkungen_pruef": "Weitere Beobachtungen, Notizen..."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten-Entity mit Adresse und Kontaktinformationen — keine berechenbaren Felder, keine Preis-/Mengen-Bezüge, keine Zeitspannen"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lager-Stammdaten mit Bestandsmengen — keine Preisfelder vorhanden (trotz Handwerk-Kontext), daher keine Multiplikationen berechenbar"
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status"],
+      "computed_keys": [],
+      "reason": "Pipeline-Entity mit Status und zwei Meilenstein-Daten (Wunsch- und Liefertermin) — keine Preisfelder, keine Mengen, daher keine computed-Formeln"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Posten-Items mit Menge und Material-Lookup — Material-Target enthält nur Lagerbestands-Felder, KEINE Preisfelder → keine Multiplikation Menge × Preis möglich"
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Inspektions-Dokument mit Mängelbeschreibung und Maßnahmen — keine Preis-, Mengen- oder Zeitspannen-Berechnungen erforderlich"
+    }
+  }
+}
