@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Hans",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Baumarkt Schmidt",
+    "telefon": "z. B. 089 12345678",
+    "email": "z. B. hans@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42a",
+    "plz": "z. B. 80469",
+    "ort": "z. B. München",
+    "notizen": "Besonderheiten, Kontaktpersonen, Allergien, Vorlieben..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Edelstahl-Schraube M8",
+    "artikelnummer": "z. B. ART-KS-M8-50",
+    "einheit": "z. B. Stück, Meter, Liter",
+    "lagerbestand": "z. B. 250",
+    "mindestbestand": "z. B. 50",
+    "verfuegbarkeit": "Verfügbarkeit wählen",
+    "material_notizen": "Lieferant, Besonderheiten, Lagerort..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AUF-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Wähle einen Status",
+    "prioritaet": "z. B. Normal, Hoch, Dringend",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was soll gemacht werden? Anforderungen, Besonderheiten...",
+    "wunschtermin": "Gewünschtes Lieferdatum?",
+    "liefertermin": "Geplantes Lieferdatum?",
+    "monteur": "z. B. Hans Müller",
+    "auftrag_notizen": "Spezielle Wünsche, Rückfragen, Koordination..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Verlegung, Montage",
+    "menge": "z. B. 10",
+    "einheit_position": "z. B. Stück, Meter, Rolle",
+    "bemerkung": "Zusätzliche Anforderungen, Varianten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wurde geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann war die Prüfung?",
+    "pruefergebnis": "Wie ist das Prüfergebnis?",
+    "maengelbeschreibung": "Welche Mängel wurden festgestellt?",
+    "massnahmen": "Welche Maßnahmen sind erforderlich?",
+    "bemerkungen_pruef": "Weitere Anmerkungen zur Prüfung..."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Kontakt, Adresse), keine berechenbaren Abhängigkeiten; alle Felder manuell"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": [
+        "lagerbestand",
+        "mindestbestand",
+        "verfuegbarkeit"
+      ],
+      "computed_keys": [],
+      "reason": "Lagerverwaltung mit Menge/Mindestbestand-Tracking, aber keine Preisfelder; daher keine computed-Formeln sinnvoll"
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": [
+        "auftragsdatum",
+        "status",
+        "wunschtermin",
+        "liefertermin"
+      ],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Terminen und Status, aber KEINE Preisfelder im Entity selbst; Posten liegen in separater Auftragspositionen-Entity ohne Preis-Target"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": [
+        "menge"
+      ],
+      "computed_keys": [],
+      "reason": "Stückliste zu Aufträgen mit Material-Applookup und Menge, aber Material-Target hat keine Preisfelder (nur Lagerbestände); Gesamtkosten-Berechnung unmöglich"
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": [
+        "pruefungsdatum",
+        "pruefergebnis"
+      ],
+      "computed_keys": [],
+      "reason": "Inspektions- und Mängel-Dokumentation, reine Texterfassung; KEINE number-Felder, KEINE berechenbaren Abhängigkeiten"
+    }
+  }
+}
