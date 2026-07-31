@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdatenverwaltung — Kontakt- und Adressinformationen ohne berechenbare Felder oder applookup-Ketten. Keine number-Felder mit Preis/Satz/Kosten, keine date-Paare mit Dauer-Semantik. Defaults leer, computed leer."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["lagerbestand", "mindestbestand", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Stammdatenverwaltung für Lagerverwaltung — Lagerbestand und Mindestbestand sind reine Mengen-Counts ohne Preisbezug, kein applookup mit Preis-Target. Verfügbarkeitsstatus hat sinnvolle Vorbelegung ('verfuegbar'). Keine berechenbaren Größen."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Aufträge sind Masterdata für Arbeitsvorgänge — applookup auf Kunden ohne Preis-Target, Status-Lookup mit klarem Initialwert 'offen', Datumsfelder mit typischen Offsets. Keine Positionen/Posten im Auftrag selbst (landen in Auftragspositionen), daher keine berechenbaren Gesamtkosten."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Verknüpfung zwischen Aufträgen und Material-Stammdaten — Menge ist ein reiner Count ohne Preis-Kontext. Material-applookup hat keine Preis-Felder in target_numeric_fields (nur lagerbestand/mindestbestand), daher keine Posten-Berechnung möglich. Struktur ist rein für Mengenverwaltung, nicht für Finanzen."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Qualitätsprüfungs-Dokumentation — applookup auf Aufträge ohne Preis-Target, Prüfergebnis-Lookup mit konservativem Default ('nicht_bestanden' zur Sicherheit). Keine number-Felder oder berechenbaren Größen — reine Textdokumentation und Statusvergabe."
+    }
+  }
+}

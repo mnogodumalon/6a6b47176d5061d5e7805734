@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "telefon": "z. B. 030 12345678",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Spezielle Wünsche, Besonderheiten..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlträgerprofil 60×40",
+    "artikelnummer": "z. B. ST-6040-50",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 15",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Wähle Verfügbarkeitsstatus",
+    "material_notizen": "Lagerfach, Hersteller, besondere Lagerungsbedingungen..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wird der Auftrag erteilt?",
+    "status": "Wähle einen Status",
+    "prioritaet": "Wie dringend ist der Auftrag?",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist zu arbeiten? Umfang, Anforderungen, Spezifikationen...",
+    "wunschtermin": "Wann soll es fertig sein?",
+    "liefertermin": "Geplanter Liefertermin mit Uhrzeit?",
+    "monteur": "Wer führt die Arbeit aus?",
+    "auftrag_notizen": "Besonderheiten, Materialwünsche, Kundenangaben..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Stahlträger zuschneiden und schweißen",
+    "menge": "z. B. 5",
+    "einheit_position": "Wähle eine Einheit",
+    "bemerkung": "Technische Details, Verarbeitung, Sonderwünsche..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Michael",
+    "monteur_name_nachname": "z. B. Schmidt",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Was ist das Prüfergebnis?",
+    "maengelbeschreibung": "Welche Mängel wurden festgestellt?",
+    "massnahmen": "Welche Korrekturmaßnahmen sind eingeleitet?",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}
