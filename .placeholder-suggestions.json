@@ -1,0 +1,52 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Spezielle Wünsche, Kontaktinformationen, Besonderheiten..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Holzschrauben 4x50",
+    "artikelnummer": "z. B. HSM-4050-100",
+    "einheit": "Welche Einheit?",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 50",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Lagerort, Besonderheiten, Lieferant..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Status des Auftrags wählen",
+    "prioritaet": "Prioritätsstufe wählen",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Arbeitsschritte, Besonderheiten, Details...",
+    "wunschtermin": "Gewünschter Fertigstellungstermin?",
+    "liefertermin": "Geplanter Liefertermin?",
+    "monteur": "z. B. Hans Schmidt",
+    "auftrag_notizen": "Zusätzliche Hinweise, Besonderheiten..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Schrauben für Montage",
+    "menge": "z. B. 100",
+    "einheit_position": "Einheit wählen",
+    "bemerkung": "Spezielle Anforderungen, Lagerort..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wurde geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Schmidt",
+    "pruefungsdatum": "Wann fand die Prüfung statt?",
+    "pruefergebnis": "Prüfergebnis auswählen",
+    "maengelbeschreibung": "Art und Lage der Mängel...",
+    "massnahmen": "Reparaturmaßnahmen, Nacharbeiten...",
+    "bemerkungen_pruef": "Sonstige Anmerkungen zur Prüfung..."
+  }
+}

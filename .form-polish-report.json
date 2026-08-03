@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten-Entity: nur Text, Email und Adressfelder. Keine Zahlen, keine Daten-Paare, keine Applookups — nichts berechenbar."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerverwaltungs-Entity mit Bestandsfeldern (lagerbestand, mindestbestand), aber keine Preis-Felder und keine Applookup-Ketten zu Kosten. Keine Kalkulationen nötig."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftragserfassungs-Entity mit Datumsfeldern und Kunden-Link, aber keine Arbeitsstunden, Stundensätze oder Kostenfelder. Das Material-Entity hat keine Preis-Informationen — Kosten-Berechnung nicht möglich."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Stücklistenfunktion: linkt Aufträge zu Materialen mit Menge. Material-Applookup liefert nur Lagerdaten (lagerbestand, mindestbestand), keine Preis-Felder — Produkt-Formel (menge × preis) nicht möglich."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Qualitätssicherungs-Dokumentation mit Auftrag-Link und Prüfergebnis, aber keine numerischen Felder außer Daten. Keine Kosten- oder Aggregat-Logik — reine Text/Status-Erfassung."
+    }
+  }
+}
