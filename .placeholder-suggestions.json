@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Mustermann",
+    "firma": "z. B. Musterbau GmbH",
+    "telefon": "z. B. +49 123 456789",
+    "email": "z. B. info@beispiel.de",
+    "strasse": "z. B. Hauptstraße 42",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. München",
+    "notizen": "Besonderheiten, Zahlungsbedingungen, Ansprechpartner..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Dachziegel Rot",
+    "artikelnummer": "z. B. DZ-4711-ROT",
+    "einheit": "Wähle Einheit",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 50",
+    "verfuegbarkeit": "Verfügbarkeitsstatus",
+    "material_notizen": "Lieferant, Lagerlocation, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann ist der Auftrag eingegangen?",
+    "status": "Wähle Status",
+    "prioritaet": "Wähle Priorität",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist zu tun? Scope, Anforderungen, Ort...",
+    "wunschtermin": "Gewünschter Termin?",
+    "liefertermin": "Spätestes Lieferdatum?",
+    "monteur": "z. B. Max Mustermann",
+    "auftrag_notizen": "Spezielle Anforderungen, Zufahrt, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welchem Auftrag zuordnen?",
+    "material": "Welches Material verwenden?",
+    "positionsbeschreibung": "z. B. Fassaden verputzen",
+    "menge": "z. B. 25",
+    "einheit_position": "z. B. Meter",
+    "bemerkung": "Details zu dieser Position, Verbrauch, Material-Variante..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Max",
+    "monteur_name_nachname": "z. B. Mustermann",
+    "pruefungsdatum": "Wann ist die Prüfung?",
+    "pruefergebnis": "Wie ist das Ergebnis?",
+    "maengelbeschreibung": "Was ist beanstandet? Konkrete Fehler...",
+    "massnahmen": "Was wird zur Behebung eingeleitet?",
+    "bemerkungen_pruef": "Sonstiges, Folgetermine, Besonderheiten..."
+  }
+}

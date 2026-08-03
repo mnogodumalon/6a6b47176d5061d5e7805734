@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Kontakt, Adresse) — keine Zahlenfelder, keine applookups mit Preis-Target. Keine Berechnungen möglich."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerverwaltung mit Bestandsmengen, aber ohne Preismodellierung. Material-Target in Auftragspositionen hat keine numerischen Preisfelder. Keine Berechnungen."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Terminen und Status. Keine Number-Felder und keine Preis-Logik. Applookup 'kunde' liefert keine numerischen Zielfelder. Keine Berechnungen."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionenliste mit Menge und Material-Bezug. Material-Target hat nur Lagernummern (lagerbestand, mindestbestand), keine Preisfelder. Keine Multiplikation sinnvoll. Keine Berechnungen."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Inspektionsdokumentation mit Monteur, Prüfungsdatum und Ergebnis. Keine Zahlenfelder außer Datum. Keine applookup-Kette mit Preisen. Keine Berechnungen."
+    }
+  }
+}
