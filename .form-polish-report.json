@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Firma, Kontakt, Adresse). Keine numerischen Felder, keine Applookups mit Preis-Targets, keine Datumspaare mit Berechnung. Nichts berechenbar."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Bestandsverwaltung mit Lagerbestand + Mindestbestand (reine Vergleichslogik für Views, nicht für Eingabe-Vorbelegung). Kein Preis-Feld, keine Applookups mit numerischen Targets. Verfügbarkeitsstatus auf Standard 'Verfügbar' vorbelegt."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status"],
+      "computed_keys": [],
+      "reason": "Auftragsköpfe mit Datumspaar (auftragsdatum / wunschtermin / liefertermin) und Applookup auf Kunden. Kein Preis-, Stunden- oder Mengenfeld vorhanden, daher keine Kostenberechnung möglich. Status auf 'Offen' vorbelegt, Auftragsdatum auf heute."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionen mit Applookup auf Material (Bestände, kein Preis) und auf Aufträge. Menge vorhanden, aber keine Preis-Felder — weder in der Entity selbst noch über Applookup-Targets. Ohne Materialpreis keine Positionskosten-Berechnung. Menge auf 1 vorbelegt."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Inspektions-/Prüfberichte mit Textfeldern (Mängel, Maßnahmen), Datumspaar (pruefungsdatum + kein zweites), Applookup auf Aufträge (kein Preis). Keine numerischen oder berechenbaren Felder. Prüfungsdatum auf heute mit Uhrzeit, Ergebnis auf 'Bestanden' vorbelegt."
+    }
+  }
+}

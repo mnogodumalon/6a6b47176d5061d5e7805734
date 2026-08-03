@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Hans",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "telefon": "z. B. +49 30 123456",
+    "email": "hans.mueller@beispiel.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42 a",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besondere Wünsche, Hinweise zur Erreichbarkeit, Zahlungsbedingungen..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Ziegeldach rot",
+    "artikelnummer": "z. B. MAT-2026-001",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 50",
+    "mindestbestand": "z. B. 10",
+    "verfuegbarkeit": "Wähle Verfügbarkeitsstatus",
+    "material_notizen": "Lieferant, Besonderheiten, Lagerort..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AF-2026-042",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Wähle einen Status",
+    "prioritaet": "z. B. Hoch oder Normal",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was wird gemacht? Material, Ziel, Besonderheiten...",
+    "wunschtermin": "Wann sollte die Arbeit fertig sein?",
+    "liefertermin": "Wann wird tatsächlich geliefert?",
+    "monteur": "z. B. Hans Müller",
+    "auftrag_notizen": "Besonderheiten, Zugang, Parkplatz, Kundenwünsche..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material wird verbaut?",
+    "positionsbeschreibung": "z. B. Dach Nord, Raum 4",
+    "menge": "z. B. 100",
+    "einheit_position": "z. B. Meter oder Stück",
+    "bemerkung": "Zuschnitt, Besonderheiten, Qualitätsvorgaben..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann findet die Prüfung statt?",
+    "pruefergebnis": "Wie lautet das Prüfergebnis?",
+    "maengelbeschreibung": "Was ist fehlerhaft oder nicht in Ordnung?",
+    "massnahmen": "Was muss verbessert oder nachgearbeitet werden?",
+    "bemerkungen_pruef": "Weitere Anmerkungen zur Prüfung..."
+  }
+}
