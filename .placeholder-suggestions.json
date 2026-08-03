@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller & Co.",
+    "telefon": "z. B. 030 12345678",
+    "email": "z. B. max@beispiel.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42a",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Kontaktzeiten, Zugangscode..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Holzschrauben 4×50",
+    "artikelnummer": "z. B. ART-001",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 100",
+    "mindestbestand": "z. B. 20",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Lagerort, Lieferant, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-0042",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Status wählen",
+    "prioritaet": "Priorität einstellen",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist zu tun? Materialien, Umfang, Besonderheiten...",
+    "wunschtermin": "Wann soll es fertig sein?",
+    "liefertermin": "Spätester Liefertermin?",
+    "monteur": "z. B. Muster, Hans",
+    "auftrag_notizen": "Notizen zur Ausführung, Kontakt, Zugang..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Fensterrahmen Eiche",
+    "menge": "z. B. 2",
+    "einheit_position": "Wähle die Einheit",
+    "bemerkung": "Besonderheiten dieser Position..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Zu welchem Auftrag?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Prüfungsergebnis wählen",
+    "maengelbeschreibung": "Welche Mängel wurden festgestellt?",
+    "massnahmen": "Welche Maßnahmen wurden eingeleitet?",
+    "bemerkungen_pruef": "Weitere Bemerkungen zum Prüfbericht..."
+  }
+}

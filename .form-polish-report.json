@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten ohne Numerik oder Berechenbarkeit — nur Text-, Email-, Adressfelder."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["einheit", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Inventurdaten (Lagerbestand/Mindestbestand) ohne applookup-Targets mit Preisen — keine Berechnung möglich. Einheit und Verfügbarkeit bekommen Defaults für häufige Startwerte."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Handwerk-Basis: Auftragsdatum heute, Status 'Offen', beide Termine mit Offset. Keine Preis-/Mengen-Berechnung, da kein applookup-Target mit numerischen Feldern."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge", "einheit_position"],
+      "computed_keys": [],
+      "reason": "Positionen mit Material-Applookup, aber Material-Target hat nur Lagerbestand/Mindestbestand (keine Preisfelder) — keine Menge×Preis-Formel möglich. Menge=1 und Einheit=Stück als sinnvolle Starts."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "QA-Dokumentation: Prüfungsdatum heute mit Zeit, Ergebnis 'Nicht bestanden' als cautious Default. Keine Numerik zur Berechnung — nur Textfelder und Lookup."
+    }
+  }
+}
