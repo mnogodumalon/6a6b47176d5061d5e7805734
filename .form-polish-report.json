@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten-Entity (Name, Adresse, Kontakt). Keine Number-Felder, keine applookups, keine Datumspaare mit Anzahlen. Nichts berechenbar."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["lagerbestand", "mindestbestand", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Bestandsverwaltung mit Lagerbestand und Mindestbestand. Diese sind Schwellwerte, keine operativen Größen einer Berechnung. Kein applookup mit Preisen. Keine Berechnung möglich."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftrag mit Datumsfeldern und Lookup-Status. Keine Number-Felder (kein Preis, keine Stunden, keine Mengen) und kein applookup mit numerischen Target-Feldern. Keine Berechnung möglich."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positions-Detail mit Menge und applookup auf Material. Material-Target hat nur Bestandsfelder (lagerbestand, mindestbestand), keine Preisfelder. Keine Grundlage für Gesamtkosten-Berechnung vorhanden."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Dokumentarisches Prüf-Protokoll mit Lookup-Status und Datum. Keine Number-Felder und keine Datumspaare mit Anzahlen. Reine Dokumentation, nichts berechenbar."
+    }
+  }
+}

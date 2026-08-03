@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. max@mueller.de",
+    "strasse": "z. B. Hauptstr.",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "telefon": "z. B. 030 123456789",
+    "notizen": "Besondere Anmerkungen, Zufahrtshinweise..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. PVC-Rohr Ø 50mm",
+    "artikelnummer": "z. B. PVC-50-001",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 45",
+    "mindestbestand": "z. B. 10",
+    "verfuegbarkeit": "Wähle Verfügbarkeitsstatus",
+    "material_notizen": "Hersteller, Chargennummer, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Wähle den Bearbeitungsstatus",
+    "prioritaet": "Wie dringend ist dieser Auftrag?",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist zu tun? Umfang, Anforderungen, Spezifikationen...",
+    "wunschtermin": "Bis wann soll es fertig sein?",
+    "liefertermin": "Geplantes Lieferdatum und Zeit",
+    "monteur": "z. B. Hans Schmidt",
+    "auftrag_notizen": "Besonderheiten, Hinweise, Absprachen..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Montage und Verarbeitung",
+    "menge": "z. B. 5",
+    "einheit_position": "z. B. Meter, Stück",
+    "bemerkung": "Spezielle Anforderungen für diese Position..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Schmidt",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Wie ist das Prüfergebnis?",
+    "maengelbeschreibung": "Welche Mängel wurden gefunden?",
+    "massnahmen": "Welche Maßnahmen wurden eingeleitet?",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}
