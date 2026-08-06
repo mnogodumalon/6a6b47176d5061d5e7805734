@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten — keine Numerik, keine Lookups mit Preis, keine Datumspaare, keine berechenbaren Beziehungen."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["lagerbestand", "mindestbestand", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Bestandsverwaltung — Lager und Mindestbestand sind reine Zählfelder ohne Multiplikator oder Preis. Verfügbarkeit-Status als Lookup-Default. Keine computed-Einträge (kein Preis im Material-Target)."
+    },
+    "Auftraege": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "prioritaet"],
+      "computed_keys": [],
+      "reason": "Kernentität des Workflow — Auftragsdatum wird heute gesetzt, Status startet mit 'offen', Priorität mit 'normal'. Keine Number-Felder und keine Preis-Ziele. Drei unabhängige Termine (kein Datumpaar)."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Linienposten pro Auftrag — Menge startet bei 1. Material-Lookup hat kein Preis-Feld (nur Bestandsfelder). Ohne Preis-Target im Material ist keine Kostenberechnung möglich."
+    },
+    "Pruefsprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Qualitätsdokumentation — Prüfungsdatum wird heute mit Zeit gesetzt (datetimeminute). Prüfergebnis-Status startet mit optimistisch 'bestanden'. Keine Number-Felder, kein Datumpaar (einzelnes Prüfungsdatum)."
+    }
+  }
+}

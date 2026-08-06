@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller & Co. GmbH",
+    "telefon": "z. B. 030 12345678",
+    "email": "z. B. max@beispiel.de",
+    "strasse": "z. B. Hauptstr.",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Zahlungsweise, Ansprechpartner..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Zement 32,5",
+    "artikelnummer": "z. B. ART-001",
+    "einheit": "Wähle Einheit",
+    "lagerbestand": "z. B. 25",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Wähle Verfügbarkeit",
+    "material_notizen": "Lieferant, Haltbarkeit, Lagerort..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AUF-2026-001",
+    "auftragsdatum": "Heute oder wann",
+    "status": "Aktueller Status",
+    "prioritaet": "Wie dringend",
+    "kunde": "Welcher Kunde",
+    "auftragsbeschreibung": "Was ist zu tun, Anforderungen, Umfang...",
+    "wunschtermin": "Kundenwunsch wenn vorhanden",
+    "liefertermin": "Wenn fest vereinbart",
+    "monteur": "z. B. Hans Meyer",
+    "auftrag_notizen": "Besonderheiten, Zugangscode, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag",
+    "material": "Welches Material",
+    "positionsbeschreibung": "z. B. Wand verputzen",
+    "menge": "z. B. 10",
+    "einheit_position": "Wähle Einheit",
+    "bemerkung": "Spezialanforderung, Qualität, Besonderheiten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Meyer",
+    "pruefungsdatum": "Wann wurde geprüft",
+    "pruefergebnis": "Wie ist das Ergebnis",
+    "maengelbeschreibung": "Was ist fehlerhaft, wo, wie schlimm...",
+    "massnahmen": "Was muss korrigiert werden, Reihenfolge...",
+    "bemerkungen_pruef": "Zusätzliche Hinweise, Fotos folgen..."
+  }
+}
