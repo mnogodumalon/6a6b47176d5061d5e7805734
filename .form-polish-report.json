@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Adresse, Kontakt) — keine berechenbaren Felder, keine Preis-Links, keine Datums-Paare"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerstammdaten mit Bestandsfeldern (keine Preis-Berechnung möglich, Material hat keine Preis-Spalten im Target). Default Verfügbarkeit='verfügbar' für häufigen Standardfall."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status"],
+      "computed_keys": [],
+      "reason": "Auftrags-Kopfdaten mit Status-Lookup und Datumsfeldern. Keine Preise/Mengen in dieser Entity (Auftragspositionen sind separate Tabelle). Status=offen als Eröffnungs-Default, Auftragsdatum=heute als Erfassungs-Datum."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionen mit Auftrag+Material-Links und Menge. Material-Target hat nur Lagerbestände (keine Preise) → keine Menge×Preis-Berechnung möglich. Default Menge=1 für Anzahl-Felder sinnvoll."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Prüfdokumentation mit Datum (withTime=true, da datetimeminute), Ergebnis-Lookup (defensiv auf 'nicht_bestanden') und Mängel/Maßnahmen-Textfelder. Keine Preisberechnung, reine Dokumentation."
+    }
+  }
+}

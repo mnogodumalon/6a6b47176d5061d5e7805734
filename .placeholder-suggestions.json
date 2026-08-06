@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Hans",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. hans@example.de",
+    "telefon": "z. B. +49 30 123456",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besondere Anmerkungen, Vorlieben..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlprofil U-Schiene",
+    "artikelnummer": "z. B. ART-4711-001",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 25",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Lagerlokation, Besonderheiten, Lieferant..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Aktueller Status wählen",
+    "prioritaet": "Dringlichkeit setzen",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Tätigkeiten, Anforderungen, Spezifikationen...",
+    "wunschtermin": "Gewünschter Abschluss",
+    "liefertermin": "Geplanter Liefertermin",
+    "monteur": "z. B. Max Schmidt",
+    "auftrag_notizen": "Besonderheiten, Änderungen, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material einbauen?",
+    "positionsbeschreibung": "z. B. Verschallung Treppe",
+    "menge": "z. B. 3",
+    "einheit_position": "Einheit der Menge",
+    "bemerkung": "Position-spezifische Notizen..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wurde geprüft?",
+    "monteur_name_vorname": "z. B. Thomas",
+    "monteur_name_nachname": "z. B. Wagner",
+    "pruefungsdatum": "Wann fand die Prüfung statt?",
+    "pruefergebnis": "Bestanden oder Mängel?",
+    "maengelbeschreibung": "Beschreibung der festgestellten Mängel...",
+    "massnahmen": "Welche Reparaturen/Nachbesserungen?",
+    "bemerkungen_pruef": "Allgemeine Anmerkungen zur Prüfung..."
+  }
+}
