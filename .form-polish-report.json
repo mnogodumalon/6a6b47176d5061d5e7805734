@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Adresse, Kontakt) — keine Number-Felder, keine Applookups mit Preis, keine Datumspaare → nichts berechenbar"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["lagerbestand", "mindestbestand", "einheit"],
+      "computed_keys": [],
+      "reason": "Inventar-Entity mit Bestandszahlen — kein Preis-Target in Applookups, keine Berechnung zwischen Feldern sinnvoll"
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "prioritaet", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftrags-Kopfdaten mit Termine und Status — keine Mengen oder Preise, die aufeinander aufbauen"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge", "einheit_position"],
+      "computed_keys": [],
+      "reason": "Positions-Tabelle mit Menge und Material-Link — Material-Target hat kein Preis-Feld (nur Bestandszahlen) → keine Multiplikation Menge × Preis möglich"
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Qualitätskontroll-Dokumentation — nur Text, Datum, Status und Freitextfelder → nichts berechenbar"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "telefon": "z. B. 030-1234567",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Zahlungsbedingungen, Kontaktperson..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Holzbretter",
+    "artikelnummer": "z. B. ART-0815",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 100",
+    "mindestbestand": "z. B. 10",
+    "verfuegbarkeit": "Wähle Verfügbarkeitsstatus",
+    "material_notizen": "Lagerlocation, Lieferant, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Wähle einen Status",
+    "prioritaet": "Wähle eine Priorität",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist zu tun? Welche Arbeiten, welche Materialien, besondere Anforderungen?",
+    "wunschtermin": "Wann möchte der Kunde fertig sein?",
+    "liefertermin": "Bis wann soll es fertig sein?",
+    "monteur": "z. B. Name des Monteurs",
+    "auftrag_notizen": "Besonderheiten, Zugang, Sicherheit, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Betonpfosten 10cm",
+    "menge": "z. B. 5",
+    "einheit_position": "Wähle die Einheit",
+    "bemerkung": "Sondermaße, Qualität, Besonderheiten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Max",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann erfolgt die Prüfung?",
+    "pruefergebnis": "Wie ist das Prüfergebnis?",
+    "maengelbeschreibung": "Was ist fehlerhaft oder unvollständig?",
+    "massnahmen": "Welche Korrektionen sind nötig? Wer macht es? Bis wann?",
+    "bemerkungen_pruef": "Zusätzliche Hinweise zur Qualitätskontrolle..."
+  }
+}
