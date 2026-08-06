@@ -1,0 +1,52 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Mustermann",
+    "firma": "z. B. Musterfirma GmbH",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Kundenwünsche, Hinweise..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Dachziegel Rot",
+    "artikelnummer": "z. B. DZ-4711",
+    "einheit": "Wähle eine Einheit",
+    "lagerbestand": "z. B. 150",
+    "mindestbestand": "z. B. 20",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Hersteller, Lagerort, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-0001",
+    "auftragsdatum": "Wann wurde der Auftrag vergeben?",
+    "status": "Aktuellen Status wählen",
+    "prioritaet": "Dringlichkeit einschätzen",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was ist zu tun? Umfang, Material, Besonderheiten...",
+    "wunschtermin": "Wann soll es fertig sein?",
+    "liefertermin": "Geplante Fertigstellung?",
+    "monteur": "z. B. Hans Schmidt",
+    "auftrag_notizen": "Besondere Anforderungen, Zufahrt, Hinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Dachdeckung, Fassadenmontage",
+    "menge": "z. B. 500",
+    "einheit_position": "Wähle die Einheit",
+    "bemerkung": "Besonderheiten zur Position, Verarbeitung, Qualitätsmerkmale..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wurde geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Schmidt",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Wie ist das Ergebnis?",
+    "maengelbeschreibung": "Was wurde beanstandet? Beschreibe die Mängel...",
+    "massnahmen": "Welche Maßnahmen werden eingeleitet? Wer kümmert sich?",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}

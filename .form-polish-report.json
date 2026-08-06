@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Adresse, Kontakt) – keine numerischen oder lookup-Ketten, nichts berechenbar"
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Bestandsverwaltung – Lagerbestände sind reine Zählfelder ohne Berechnung (kein Preisfeld im Target). Verfügbarkeit auf 'verfuegbar' vorbelegt"
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin"],
+      "computed_keys": [],
+      "reason": "Status-Pipeline ohne numerische Felder – Auftragsdatum=heute, Status=offen (Anfang-Default), Wunschtermin=heute+14 Tage. Keine Berechnung sinnvoll ohne Preisfelder"
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Ligatur Auftrag↔Material – Material-applookup hat nur Bestände im Ziel (kein Preis). Menge=1 Default. Keine Gesamtkosten-Berechnung ohne Preisfelder"
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "QA-Dokumentation – Prüfungsdatum=heute (withTime:true), Ergebnis=bestanden (positiver Standard). Reine Text-/Lookup-Felder, keine Berechnung"
+    }
+  }
+}
