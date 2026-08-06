@@ -650,18 +650,23 @@ async def _build_one_intent_page(flow: dict, index: int) -> dict:
         "type": "object",
         "properties": {
             "flows": {
-                "type": "array",
-                "minItems": 1,
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "file": {"type": "string",
-                                 "description": "src/pages/intents/{PascalCase}Page.tsx"},
-                        "brief": {"type": "string",
-                                  "description": "The complete brief for this one page."},
+                "oneOf": [
+                    {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "file": {"type": "string",
+                                         "description": "src/pages/intents/{PascalCase}Page.tsx"},
+                                "brief": {"type": "string",
+                                          "description": "The complete brief for this one page."},
+                            },
+                            "required": ["file", "brief"],
+                        },
                     },
-                    "required": ["file", "brief"],
-                },
+                    {"type": "string", "description": "JSON-encoded array of flow objects"},
+                ]
             }
         },
         "required": ["flows"],
@@ -669,6 +674,11 @@ async def _build_one_intent_page(flow: dict, index: int) -> dict:
 )
 async def _build_intent_pages(args: dict) -> dict:
     flows = args.get("flows") or []
+    if isinstance(flows, str):
+        try:
+            flows = json.loads(flows)
+        except Exception:
+            flows = []
     if not isinstance(flows, list) or not flows:
         return {"content": [{"type": "text", "text": "No flows given — pass one entry per intent page."}],
                 "is_error": True}
