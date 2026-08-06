@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Adresse, Kontakt), keine numerischen Felder, keine Datumslogik, keine Preisbeziehungen."
+    },
+    "Material": {
+      "placeholders_set": 6,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Lagerbestandskontrolle. Verfügbarkeit hat Default 'verfügbar'. Lagerbestand und Mindestbestand sind reine Eingabefelder ohne Beziehungen oder Berechnungen."
+    },
+    "Aufträge": {
+      "placeholders_set": 8,
+      "defaults_keys": ["auftragsdatum", "status"],
+      "computed_keys": [],
+      "reason": "Auftragsdatum wird auf Heute gesetzt, Status auf 'Offen'. Keine Preisfelder und keine berechneten Felder sichtbar. Termine sind reine Datumsangaben ohne arithmetische Beziehung zu anderen Feldern."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Menge wird auf 1 gesetzt. Applookup auf Material enthält nur Bestandsfelder (lagerbestand, mindestbestand), NICHT Preis-Keys. Ohne sichtbaren Preis-Key im Material-Target sind keine Multiplikationen berechenbar. Konservativ keine computed-Formeln."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Prüfungsdatum wird auf Heute mit Zeit gesetzt. Entity ist Dokumentation einer Prüfung mit Text-Feldern und Status-Lookup. Keine Mengen, Preise oder berechenbaren Felder."
+    }
+  }
+}

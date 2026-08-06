@@ -1,0 +1,35 @@
+Legend: `!` after a field name = required (from the app's base view) —
+a step form that writes such a field must not submit it empty.
+A lookup field lists its keys after the type (`[lookup/select: a|b|c]`);
+these are the ONLY valid write values — quote them into the brief verbatim,
+the matching labels come from LOOKUP_OPTIONS at runtime.
+`⚙` lists the service methods for that entity, spelled exactly.
+
+Modules — copy these paths verbatim into a subagent brief:
+  @/types/app                            entity types, APP_IDS, LOOKUP_OPTIONS
+  @/types/enriched                       EnrichedAuftraege, EnrichedAuftragspositionen, EnrichedPruefprotokoll — the COMPLETE list, no other Enriched* type exists
+  @/services/livingAppsService           LivingAppsService, createRecordUrl, extractRecordId
+  @/hooks/useDashboardData               useDashboardData
+  @/lib/formatters                       lookupKey, formatDate
+  @/components/blocks/IntentWizardShell  IntentWizardShell
+  @/components/blocks/EntitySelectStep   EntitySelectStep
+  @/components/blocks/StatusBadge        StatusBadge, getStatusColor
+  @/components/blocks/BudgetTracker      BudgetTracker
+There is NO `@/config/appIds`, no `@/config/lookupOptions` and no
+`@/lib/urlUtils` — APP_IDS and LOOKUP_OPTIONS come from `@/types/app`,
+createRecordUrl from the service. Note the lowercase `l` in the service path.
+
+- Kunden (kunden): vorname![string/text], nachname![string/text], firma[string/text], telefon![string/tel], email[string/email], strasse[string/text], hausnummer[string/text], plz[string/text], ort[string/text], notizen[string/textarea]
+  ⚙ getKunden() · getKundenEntry(id) · createKundenEntry(fields) · updateKundenEntry(id, fields) · deleteKundenEntry(id)
+- Material (material): bezeichnung![string/text], artikelnummer[string/text], einheit![lookup/select: stueck|meter|liter|kilogramm|paket|rolle|satz], lagerbestand[number], mindestbestand[number], verfuegbarkeit![lookup/select: verfuegbar|nicht_verfuegbar|auf_bestellung], material_notizen[string/textarea]
+  ⚙ getMaterial() · getMaterialEntry(id) · createMaterialEntry(fields) · updateMaterialEntry(id, fields) · deleteMaterialEntry(id)
+- Aufträge (auftraege): auftragsnummer![string/text], auftragsdatum![date/date], status![lookup/select: offen|in_bearbeitung|abgeschlossen|storniert], prioritaet[lookup/radio: niedrig|normal|hoch|dringend], kunde![applookup/select], auftragsbeschreibung![string/textarea], wunschtermin[date/datetimeminute], liefertermin[date/datetimeminute], monteur[string/text], auftrag_notizen[string/textarea]
+  ⚙ getAuftraege() · getAuftraegeEntry(id) · createAuftraegeEntry(fields) · updateAuftraegeEntry(id, fields) · deleteAuftraegeEntry(id)
+  → kunde links to app_id 6a6b46f24aeb03e3fc0e5803
+- Auftragspositionen (auftragspositionen): auftrag![applookup/select], material![applookup/select], positionsbeschreibung[string/text], menge![number], einheit_position[lookup/select: stueck|meter|liter|kilogramm|paket|rolle|satz], bemerkung[string/textarea]
+  ⚙ getAuftragspositionen() · getAuftragspositionenEntry(id) · createAuftragspositionenEntry(fields) · updateAuftragspositionenEntry(id, fields) · deleteAuftragspositionenEntry(id)
+  → auftrag links to app_id 6a6b46f93a346f58e17d78e4
+  → material links to app_id 6a6b46f99c583f55b2594c29
+- Prüfprotokoll (pruefprotokoll): auftrag_pruef![applookup/select], monteur_name_vorname![string/text], monteur_name_nachname![string/text], pruefungsdatum![date/datetimeminute], pruefergebnis![lookup/radio: nicht_bestanden|bestanden_mit_maengeln|bestanden], maengelbeschreibung[string/textarea], massnahmen[string/textarea], fotos[file], bemerkungen_pruef[string/textarea]
+  ⚙ getPruefprotokoll() · getPruefprotokollEntry(id) · createPruefprotokollEntry(fields) · updatePruefprotokollEntry(id, fields) · deletePruefprotokollEntry(id)
+  → auftrag_pruef links to app_id 6a6b46f93a346f58e17d78e4

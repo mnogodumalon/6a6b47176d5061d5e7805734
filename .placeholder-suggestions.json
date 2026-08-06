@@ -1,0 +1,48 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Zahlungsbedingungen, Rabatte..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Türgriff Edelstahl",
+    "artikelnummer": "z. B. DG-ES-42",
+    "einheit": "Einheit wählen",
+    "lagerbestand": "z. B. 25",
+    "mindestbestand": "z. B. 5",
+    "material_notizen": "Lagerort, Lieferant, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "kunde": "Kunde wählen",
+    "auftragsbeschreibung": "Was soll erledigt werden? Umfang, Besonderheiten...",
+    "wunschtermin": "Wann soll die Arbeit abgeschlossen sein?",
+    "liefertermin": "Spätestens wann muss es passen?",
+    "monteur": "z. B. Hans Weber",
+    "auftrag_notizen": "Besonderheiten, Zugang, Materialwünsche..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material verwenden?",
+    "positionsbeschreibung": "z. B. Fensterrahmen lackiert",
+    "menge": "z. B. 2",
+    "einheit_position": "Einheit wählen",
+    "bemerkung": "Besonderheiten, Zuschnitte, Verarbeitung..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Weber",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "maengelbeschreibung": "Welche Mängel wurden gefunden?",
+    "massnahmen": "Wie sollen die Mängel behoben werden?",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}
