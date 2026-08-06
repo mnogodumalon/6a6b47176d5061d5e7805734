@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten-Entity (Kontaktinformationen, Adresse) — keine Applookups, keine Datums-Paare, keine numerischen Felder. Nichts berechenbar."
+    },
+    "Material": {
+      "placeholders_set": 8,
+      "defaults_keys": ["lagerbestand", "mindestbestand", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Bestandsverwaltung ohne Preis-Spalten. Lagerbestand/Mindestbestand erhalten Defaults (0), Verfügbarkeit Default 'Verfügbar'. Keine applookups mit Numerik, keine Berechnungen."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["auftragsdatum", "status", "prioritaet", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Geschäfts-Entity mit Status/Priorität + Datums-Paar (Wunsch/Liefern), aber keine Preis-Felder und keine applookups mit Numerik. Datum-Defaults (heute, heute+14) + Status-Default 'Offen'. Keine Berechnungen."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 5,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Positionen in einem Auftrag mit Menge + Einheit, Applookup auf Material — aber Material-Target hat KEINE Preis-Spalten (nur Lagerbestand/Mindestbestand). Daher keine Menge×Preis-Multiplikation möglich. Menge-Default=1."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "QA-Dokumentation mit Auftrag + Monteur-Daten + Prüfergebnis-Lookup. Keine Preise, keine Anzahl. Pruefungsdatum=heute (mit Zeit), Prüfergebnis-Default='Bestanden'. Reine Dokumentation."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. max@example.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "telefon": "z. B. +49 30 123456",
+    "notizen": "Besondere Wünsche, Ansprechpartner, Service-Level..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlblech 2mm",
+    "artikelnummer": "z. B. MAT-2024-001",
+    "einheit": "Einheit wählen",
+    "lagerbestand": "z. B. 50",
+    "mindestbestand": "z. B. 10",
+    "verfuegbarkeit": "Status wählen",
+    "material_notizen": "Lieferant, Lagerort, Besonderheiten..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2024-001",
+    "auftragsdatum": "Wann wurde der Auftrag erteilt?",
+    "status": "Status wählen",
+    "prioritaet": "Priorität wählen",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was muss gemacht werden? Umfang, Anforderungen, Besonderheiten...",
+    "wunschtermin": "Wann soll es fertig sein?",
+    "liefertermin": "Geplantes Fertigdatum",
+    "monteur": "z. B. Hans Müller",
+    "auftrag_notizen": "Spezielle Anweisungen, Kundenhinweise..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Welcher Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Verarbeitung, Montage",
+    "menge": "z. B. 5",
+    "einheit_position": "Einheit wählen",
+    "bemerkung": "Besonderheiten dieser Position, Verzögerungen..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Ergebnis wählen",
+    "maengelbeschreibung": "Was wurde beanstandet? Fehler, Mängel, Abweichungen...",
+    "massnahmen": "Wie wird behoben? Reparatur, Austausch, Nachbesserung...",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Prüfung..."
+  }
+}
