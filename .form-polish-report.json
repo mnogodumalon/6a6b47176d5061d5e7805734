@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 9,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Kontakt, Adressi). Keine Numerik, keine Datumspaare, keine Preis-Logik. Nichts berechenbar."
+    },
+    "Material": {
+      "placeholders_set": 8,
+      "defaults_keys": ["verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Stammdaten mit Bestandsverwaltung (Lager, Mindestbestand). Keine Beziehung zw. den Mengen, keine Preis-Spalte im applookup-Target. Verfügbarkeitsstatus wird manuell eingetragen."
+    },
+    "Aufträge": {
+      "placeholders_set": 9,
+      "defaults_keys": ["auftragsdatum", "status", "wunschtermin", "liefertermin"],
+      "computed_keys": [],
+      "reason": "Auftragskopf mit Zeitverwaltung (Wunsch + Liefertermin). Kein Preis hier — Positionen + Kosten liegen in Auftragspositionen. Keine berechenbaren Geldbeträge im Auftrag selbst."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Posten mit Menge + Material-Ref. Material-applookup hat KEIN Preis-Feld in target_numeric_fields (nur Lagerbestände). Daher keine Produktformel (menge * preis) möglich. Falls Material später eine Preis-Spalte erhält, ist 'positionskosten' = applookup(material, preis) * field(menge) sofort hinzufügbar."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 8,
+      "defaults_keys": ["pruefungsdatum", "pruefergebnis"],
+      "computed_keys": [],
+      "reason": "Qualitätsdoku mit Prüfungsergebnis (Radio: nicht_bestanden / mit_Mängeln / bestanden) und Textfelder für Details. Keine berechenbaren Größen."
+    }
+  }
+}

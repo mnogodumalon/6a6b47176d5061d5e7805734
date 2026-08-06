@@ -1,0 +1,52 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Hans",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller GmbH",
+    "email": "z. B. hans.mueller@firma.de",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Lieferbedingungen, Zahlungsart..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Ziegeldachziegel",
+    "artikelnummer": "z. B. ZZ-10001",
+    "einheit": "Einheit wählen",
+    "lagerbestand": "z. B. 500",
+    "mindestbestand": "z. B. 100",
+    "verfuegbarkeit": "Verfügbarkeitsstatus",
+    "material_notizen": "Hersteller, Eigenschaften, Lagerfach..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. A-2026-001",
+    "auftragsdatum": "Wann wurde die Bestellung aufgegeben?",
+    "status": "Bearbeitungsstatus wählen",
+    "prioritaet": "z. B. Normal",
+    "kunde": "Welcher Kunde?",
+    "auftragsbeschreibung": "Was soll ausgeführt werden? Umfang, Besonderheiten...",
+    "wunschtermin": "Wunschtermin für die Fertigstellung?",
+    "liefertermin": "Geplanter Liefertermin?",
+    "monteur": "z. B. Max Meister",
+    "auftrag_notizen": "Absprachen, Besonderheiten, Zugang..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag?",
+    "material": "Welches Material?",
+    "positionsbeschreibung": "z. B. Dachziegel ROT",
+    "menge": "z. B. 100",
+    "einheit_position": "Einheit wählen",
+    "bemerkung": "Spezifikation, Rabatt, Besonderheiten..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wurde geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Müller",
+    "pruefungsdatum": "Wann erfolgte die Prüfung?",
+    "pruefergebnis": "Prüfstand wählen",
+    "maengelbeschreibung": "Was wurde beanstandet? Fehlertyp, Ort, Details...",
+    "massnahmen": "Wie wird behoben? Reparatur, Austausch, Timeline...",
+    "bemerkungen_pruef": "Sonstiges, Unterschrift, Datum..."
+  }
+}
