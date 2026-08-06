@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Kunden": {
+      "placeholders_set": 10,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Name, Adresse, Kontakt). Keine Berechnung sinnvoll; fieldOrder optimiert für UX (Namenpaar, Adressenzeilen)."
+    },
+    "Material": {
+      "placeholders_set": 7,
+      "defaults_keys": ["einheit", "verfuegbarkeit"],
+      "computed_keys": [],
+      "reason": "Lagerverwaltung mit zwei Number-Feldern (Bestand), die keine mathematische Beziehung haben. Einheit und Verfügbarkeit erhalten sinnvolle Lookups-Defaults für schnelle Erfassung."
+    },
+    "Aufträge": {
+      "placeholders_set": 10,
+      "defaults_keys": ["auftragsdatum", "status", "prioritaet"],
+      "computed_keys": [],
+      "reason": "Auftragsverwaltung mit Terminen und Status. Posten-Details lagern in separater Auftragspositionen-Entity — kein Preis im Auftrag selbst, daher keine Kostenformel. Defaults: heute + Standardstatus/Priorität für Workflow-Effizienz."
+    },
+    "Auftragspositionen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["menge"],
+      "computed_keys": [],
+      "reason": "Posten mit Menge und Material-Referenz (kein Preis-Zielfeld). Menge=1 Default (Standard-Anzahl bei Erfassung). Material hat kein Preis-Information in target_numeric_fields — keine Kostenberechnung möglich."
+    },
+    "Prüfprotokoll": {
+      "placeholders_set": 7,
+      "defaults_keys": ["pruefungsdatum"],
+      "computed_keys": [],
+      "reason": "Qualitätskontroll-Dokumentation mit Prüfergebnis-Lookup und Mängelerfassung. pruefungsdatum mit withTime:true für Zeitstempel. Keine Berechnungen; fieldOrder optimiert (Namen nebeneinander, Details zum Ende)."
+    }
+  }
+}

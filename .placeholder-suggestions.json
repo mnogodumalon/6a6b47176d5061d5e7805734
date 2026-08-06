@@ -1,0 +1,53 @@
+{
+  "KundenDialog.tsx": {
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "firma": "z. B. Müller Bau GmbH",
+    "telefon": "z. B. 0123 456789",
+    "email": "z. B. max@example.com",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 12345",
+    "ort": "z. B. Berlin",
+    "notizen": "Besonderheiten, Geschäftsbeziehung, Ansprechpartner, Zahlungsbedingungen..."
+  },
+  "MaterialDialog.tsx": {
+    "bezeichnung": "z. B. Stahlträgerprofil IPE 200",
+    "artikelnummer": "z. B. ST-IPE-200-001",
+    "einheit": "Einheit wählen",
+    "lagerbestand": "z. B. 25",
+    "mindestbestand": "z. B. 5",
+    "verfuegbarkeit": "Verfügbarkeitsstatus wählen",
+    "material_notizen": "Lagerort, Besonderheiten, Lieferant, Haltbarkeit..."
+  },
+  "AuftraegeDialog.tsx": {
+    "auftragsnummer": "z. B. AU-2026-001",
+    "auftragsdatum": "Wann wurde der Auftrag erfasst?",
+    "status": "Bearbeitungsstatus wählen",
+    "prioritaet": "Priorität wählen",
+    "kunde": "Aus 5+ Kunden wählen",
+    "auftragsbeschreibung": "Was ist der Auftrag? Welche Leistung, welche Räume, besondere Anforderungen?",
+    "wunschtermin": "Gewünschtes Abschlussdatum",
+    "liefertermin": "Geplantes Lieferdatum",
+    "monteur": "z. B. Hans Schulz",
+    "auftrag_notizen": "Spezielle Anforderungen, Zugang, Lagerung, Zahlungsabsprachen..."
+  },
+  "AuftragspositionenDialog.tsx": {
+    "auftrag": "Zu welchem Auftrag gehört diese Position?",
+    "material": "Welches Material wird benötigt?",
+    "positionsbeschreibung": "z. B. Stahlrahmen-Montage",
+    "menge": "z. B. 4",
+    "einheit_position": "Mengeneinheit wählen",
+    "bemerkung": "Besonderheiten, Montagehinweise, Qualität, Lagerort des Materials..."
+  },
+  "PruefprotokollDialog.tsx": {
+    "auftrag_pruef": "Welcher Auftrag wird geprüft?",
+    "monteur_name_vorname": "z. B. Hans",
+    "monteur_name_nachname": "z. B. Schulz",
+    "pruefungsdatum": "Wann wurde geprüft?",
+    "pruefergebnis": "Prüfergebnis wählen",
+    "maengelbeschreibung": "Was war fehlerhaft? Beschreib Lage, Art und Umfang des Mangels.",
+    "massnahmen": "Welche Korrektionen wurden eingeleitet? Zeitrahmen, Kosten, Zuständigkeit?",
+    "bemerkungen_pruef": "Zusätzliche Anmerkungen zur Qualitätskontrolle, Nachfolgeprüfungen..."
+  }
+}
